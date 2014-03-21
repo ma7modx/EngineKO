@@ -124,8 +124,8 @@ public:
 			{
 				sscanf(materiaFile[i].c_str() , "map_Kd %s" , &loadedMaterial);
 				isMaterialloc = true ;
-					Texture tex = Texture("tex1" , loadedMaterial ) ;
-					Data->TextureID = tex.GetID();
+//					Texture tex = Texture("tex1" , loadedMaterial ) ;
+	//				Data->TextureID = tex.GetID();
 					///	texture.push_back(Data->TextureID) ; // should be handled <<--------------
 						
 			}

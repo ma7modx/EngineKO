@@ -1,5 +1,7 @@
 #include "Scene.h"
 #include "SceneGraph.h"
+class Camera ;
+
 class SceneManager
 {
 public:
@@ -9,22 +11,25 @@ public:
 		this->scene = scene ; 
 		this->sceneGraph = sceneGraph ;
 	}
-	void Update() 
+	bool ApplySceneGraph(GameObject g) 
 	{
+		return sceneGraph->Apply(g);
+		/*
 		for (int i = 0 ; i < scene->GetChilds().size() ; ++i)
 		{
 			if( sceneGraph->Apply((scene->GetChilds())[i]) ) 
 				// draw
 				;
 		}
+		*/
 	}
 	void SetScene(Scene* s)
 	{
 		scene = s;
 	}
-	Scene* GetCurrentScene()
+	Scene GetCurrentScene()
 	{
-		return scene;
+		return *scene;
 	}
 	void SetSceneGraph(SceneGraph* graph)
 	{

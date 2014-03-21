@@ -31,30 +31,47 @@ public:
 	void Start()
 	{
 		glutInit(&iArgc, cppArgv);
+		
 		glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
 		glutInitWindowSize(this->widnow.WindoWidth, this->widnow.Windowheight);
 		glutInitWindowPosition(this->widnow.Windowposition.X, this->widnow.Windowposition.Y);
-		//glutInitContextVersion(4, 2);
-glutCreateWindow(this->widnow.Title.c_str());
+		//glOrtho (0, this->widnow.WindoWidth, this->widnow.Windowheight, 0, this->widnow.Near,  this->widnow.Far);
 		
+		glutCreateWindow(this->widnow.Title.c_str());
+
+		glewInit();
+
 		cout << glGetString(GL_VERSION) <<endl;
 		cout << glGetString(GL_SHADING_LANGUAGE_VERSION) << endl ;
 
 		glewExperimental = GL_TRUE;
-		glewInit();
-
+		
 
 		GLclampf r = this->widnow.color.R, g = this->widnow.color.G, b = this->widnow.color.B;
 		glClearColor(r, g, b, 1);
 
 		glEnable(GL_BLEND);
 
+		glEnable(GL_DEPTH_TEST);
+
+	//	glEnable(GL_TEXTURE_2D);
+//		glActiveTexture(GL_TEXTURE0);
+
+		/*
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		gluPerspective(this->widnow.Angle, this->widnow.WindoWidth / this->widnow.Windowheight, this->widnow.Near, this->widnow.Far);
 		glMatrixMode(GL_MODELVIEW);
-		glEnable(GL_DEPTH_TEST);
-		glEnable(GL_TEXTURE_2D);
+		*/
+
+		//glViewport(0, 0, this->widnow.WindoWidth, this->widnow.Windowheight);
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+		glOrtho(-1, 1, 1,
+			-1, -1, 1);
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+
 		GLfloat light_ambient[] = { 0.0, 0.0, 0.0, 1.0 };
 		GLfloat light_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
 		GLfloat light_specular[] = { 1.0,1.0, 1.0, 1.0 };
@@ -66,11 +83,9 @@ glutCreateWindow(this->widnow.Title.c_str());
 		glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
 		glLightfv(GL_LIGHT0, GL_POSITION, light_position);
 
-		glEnable(GL_LIGHTING);
-		glEnable(GL_LIGHT0);
+		//glEnable(GL_LIGHTING);
+		//glEnable(GL_LIGHT0);
 
-		
-		int s(0);
 	}
 	//-------------------------------------------------------------------------
 	static int frameCount ,previousTime;
@@ -100,16 +115,26 @@ glutCreateWindow(this->widnow.Title.c_str());
 	static void UpdateCall()
 	{
 		calculateFPS();
-		
+
 		GameController::GetGameController()->GameUpdateLOOP();
 		// calculate elapsed time
 		glutPostRedisplay();
 	}
+	static float angle ;
 	static void DrawCALL()
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		GameController::GetGameController()->GameDrawLOOP();
+
+		glPushMatrix();
+		glLoadIdentity();
+		glTranslatef(0,0,-0.2);
+		glRotatef(OpenGL::angle,1,0,0);
+	//	glutSolidCube(1.5);
+	//	glutSolidSphere(1.0, 50, 50);
+		OpenGL::angle+=0.01;
+		glPopMatrix();
 
 		glutSwapBuffers();
 	}
@@ -120,26 +145,11 @@ glutCreateWindow(this->widnow.Title.c_str());
 	}
 	void LOOP()
 	{
-		/*
-		SDL_Event event;
-
-		while (SDL_PollEvent(&event)){}
-		switch (event.type)
-		{
-		case SDL_KEYDOWN:
-			switch (event.key.keysym.sym)
-			{
-			case SDLK_w:
-				cout << "be5" << endl;
-				break;
-			}
-		}
-		*/
 		glutIdleFunc(UpdateCall);
 		glutDisplayFunc(DrawCALL);
 		//	Timer(1) ;
 		glutMainLoop();
-		
+
 	}
 
 	void SetVertexPosition(Vector3 pos)
@@ -165,9 +175,10 @@ glutCreateWindow(this->widnow.Title.c_str());
 		glGenTextures(1, &texbufferID);
 		glBindTexture(GL_TEXTURE_2D, texbufferID);
 
-		int width, height, dipth;
+		int width = -1, height, dipth;
 		auto load = stbi_load(filename, &width, &height, &dipth, 4);
 
+		if(width == -1) std :: cout << "Wrong TexturePath " << filename << std :: endl ;
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, load);
 
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -242,7 +253,7 @@ glutCreateWindow(this->widnow.Title.c_str());
 		GPUShaderModeActive(numOfShaders, ShaderAttributesindices); 
 
 		ShaderAttributePointer( ShaderAttributesindices , strideBetweenVertices, pointerToTheBeginingOfData, mode) ;
-		
+
 		VBODraw(numOfVertices , shape) ;
 
 		GPUShaderModeDeactive(numOfShaders, ShaderAttributesindices);
@@ -273,12 +284,12 @@ glutCreateWindow(this->widnow.Title.c_str());
 	}
 	void ReserveBuffer(unsigned int& BufID)
 	{
-	glGenBuffers(1, &BufID);
+		glGenBuffers(1, &BufID);
 	}
 	void FillBuffer(unsigned int BufID, void* data, int sizeOfarray, GPUDrawMode Mode, BufferType BType)
 	{
 		//glGenBuffers(1, &BufID);
-		
+
 		int mode;
 		if (Mode == GPUDrawMode::STATIC)
 			mode = GL_STATIC_DRAW;
@@ -413,7 +424,7 @@ private:
 		cout << endl;
 		return id;
 	}
-	
+
 	void GPUModeActive(VertexData Mode)
 	{
 		if (Mode.Mode & 1)
@@ -594,3 +605,4 @@ return ProgramID;
 
 int OpenGL::frameCount = 0 ;
 int OpenGL::previousTime = 0;
+float OpenGL::angle = 0 ;

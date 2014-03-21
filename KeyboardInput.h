@@ -6,7 +6,6 @@ using namespace std;
 class KeyboardInput : public InputDevice
 {
 public:
-
 	void GetStates();
 
 private :

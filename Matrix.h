@@ -35,6 +35,9 @@ public:
 	
 	static Matrix LookAt(Vector3 position, Vector3 target);
 	static Matrix LookAtDirection(Vector3 position, Vector3 eyeDirection);
+	static Matrix PerspectiveFOV(float fov, float aspectRatio, float zNear, float zFar);
+	static Matrix OrthoGraphic(float left, float right, float bottom, float top, float near, float far);
+
 
 	void ApplyOn(Vector3& vec);
 

@@ -10,7 +10,7 @@
 #include "Vertex.h"
 #include "ImmedientShapes.h"
 #include "MColor.h"
-#include "RenderingManager.h"
+#include "RenderManager.h"
 #include "Shader.h"
 #include "GameController.h"
 #include "GraphicsManager.h"
@@ -19,6 +19,8 @@
 #include "Mesh.h"
 #include "ObjLoader.h"
 #include "InputDeviceManager.h"
+#include "Button.h"
+#include "UIManager.h"
 using namespace std ;
 
 class _Game1 : public PartOfGamePlay
@@ -33,6 +35,8 @@ public :
 	Shader* sshader ;
 	GeometryIVBO* shaderGPU;
 	Texture* tex;
+	Button* button ;
+	UIManager* Uimanager ;
 	int ID ;
 	unsigned int img;
 	float r ;
@@ -44,60 +48,58 @@ public :
 		cout <<v.GetSize()<<endl;
 
 		r = 0 ;
-		cout << (1<<2) <<endl;
-	
-		for(int m = 1 ;	m < MoveList::P6 ;	m <<= 1)
-			cout << (MoveList)m << " " ;
-			cout <<endl ;
 			
-			
-			
-			mesh = new Mesh("mesh" , "SimpleCubeAdv.obj");
+			mesh = new Mesh("mesh" , "meshmesh.obj");
 
 		Vertex *V1, *V2,*V3 ;
-		V1 = new VertexColor(Vector3(0,0,-7) , MColor::Blue ) ;
-		V2 = new  VertexColor(Vector3(1,1,-7)  ,MColor::Black) ;
-		V3 = new VertexColor(Vector3(-1,1,-7) ,MColor::Red) ;
+		V1 = new VertexColor(Vector3(0,0,0) , MColor::Blue ) ;
+		V2 = new  VertexColor(Vector3(1,1,0)  ,MColor::Black) ;
+		V3 = new VertexColor(Vector3(-1,1,0) ,MColor::Red) ;
 		T = new Triangle(V1 , V2 , V3) ;
 
 		IVertex *cc [3];
-		cc[0]=  new Vertex( Vector3(0,22,-7)) ;cc[1] = new Vertex (Vector3(1,1,-7)) ;cc[2] = new Vertex(Vector3(-1,1,-7));
+		cc[0]=  new Vertex( Vector3(0,0,0)) ;cc[1] = new Vertex (Vector3(1,1,0)) ;cc[2] = new Vertex(Vector3(-1,1,0));
 
-		VertexColor offset[3] = {VertexColor( Vector3(0,0,-7) , MColor(10,2,4)) ,VertexColor (Vector3(1,1,-7), MColor(10,200,4)) ,VertexColor(Vector3(-1,1,-7), MColor(10,2,200))}  ;
+		VertexColor offset[3] = {VertexColor( Vector3(0,0,0) , MColor(10,2,4)) ,VertexColor (Vector3(1,1,0), MColor(10,200,4)) ,VertexColor(Vector3(-1,1,0), MColor(10,2,200))}  ;
 
 		int ind [] = {0,1,2} ;
 
 		GPU = new GeometryIVBO(3 , offset , 3 , ind) ;
-		 tex = new Texture(1) ;
+//		 tex = new Texture(1) ;
 		
-		 ID = tex->LoadTexture("001.bmp");
-
 		sshader = new Shader("mshader" , "vertex.vs","fragment.frag") ;
 		tranShader = new Shader ("masd" , "TransofrmationShader.vs" , "SimpleFragmentShader.fragmentshader") ;
 
-		VertexColor vc [4]={VertexColor( Vector3(-2,2,-90) , MColor(10,2,4)) ,VertexColor (Vector3(-2,-2,-90), MColor(10,200,4)) ,VertexColor(Vector3(2,-2,-90), MColor(10,2,200)) , VertexColor(Vector3(2,2,-90), MColor(10,2,200))};  
+		VertexColor vc [4]={VertexColor( Vector3(-0.2,0.2,-0) , MColor(10,2,4)) ,VertexColor (Vector3(-0.2,-0.2,-0), MColor(10,200,4)) ,VertexColor(Vector3(0.2,-0.2,-0), MColor(10,2,200)) , VertexColor(Vector3(0.2,0.2,-0), MColor(10,2,200))};  
 
 		int ass [] = {0,1 , 2 ,	3 } ;
 		shaderGPU= new GeometryIVBO(4 , vc , 4 , ass);
 
-		glActiveTexture(GL_TEXTURE0);
-
+		ID = tex->LoadTexture("001.bmp");
+		button = new Button("Untitled.bmp" , Vector2(0,0) ,1 , 1);
+		Uimanager = new UIManager();
+		
 		//  img=loadTexture("img.jpg");
 	}
 	void Update()
 	{
-
+		Uimanager->Update();
+		button->IsClicked();
 	}
 
 	void Draw()
 	{
+	glLoadIdentity();
+	glScalef(0.5,0.5,0.5);
 		// pass the camera matrix to the render manager
-
+		
 		T->Debug();
 		GPU->Draw();
 
+	//	button->Draw();
+/*
 	glBindTexture(GL_TEXTURE_2D , ID );
-	/*
+	
 	glBegin(GL_QUADS);
 	{
 		glVertex3f(0,1,-30); glTexCoord2f(0,1);
@@ -110,10 +112,12 @@ public :
 	*/
 
 		glPushMatrix();
-		glColor3f(1,0,0);
+		glColor3f(0.3,0,0);
 		glLoadIdentity();
-		glTranslatef(0,0,-10);
-		glRotatef(r+=0.04,1,0,0);
+		glScalef(0.3,0.3,0.3);
+	glTranslatef(0,0,-0.3);
+		glRotatef(r+=0.04,1,1,0);
+		
 		mesh->Draw();
 		glPopMatrix();
 		
@@ -122,7 +126,7 @@ public :
 		
 		tranShader->Active();
 
-		tranShader->SetUniform("projection" , Matrix::Translation(Vector3(r+= 0.01,0,0)) ) ; // update
+		tranShader->SetUniform("projection" , Matrix::Translation(Vector3(r/109,0,0)) ) ; // update
 
 		// geo draw will get att frm the shader 
 		// 
