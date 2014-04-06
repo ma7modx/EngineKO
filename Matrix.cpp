@@ -88,22 +88,22 @@ Matrix Matrix::Rotation( Vector3 eulerAngles)
 
 	Matrix rx = Matrix(
 		1,0,0,0,
-		0,cosf(x),sinf(x),0,
-		0,-sinf(x),cosf(x),0,
+		0,cosf(x),-sinf(x),0,
+		0,sinf(x),cosf(x),0,
 		0,0,0,1);
 
 	Matrix ry = Matrix(
-		cosf(y),0,-sinf(y),0,
+		cosf(y),0,sinf(y),0,
 		0,1,0,0,
-		sinf(y),0,cosf(y),0,
+		-sinf(y),0,cosf(y),0,
 		0,0,0,1);
 	Matrix rz = Matrix(
-		cosf(z),sinf(z),0,0,
-		-sinf(z),cosf(z),0,0,
+		cosf(z),-sinf(z),0,0,
+		sinf(z),cosf(z),0,0,
 		0,0,1,0,
 		0,0,0,1);
 
-	return rx * ry * rz;
+	return rz* ry* rx;
 }
 
 Matrix Matrix::Scale( Vector3 scale)
@@ -157,14 +157,26 @@ Matrix Matrix::LookAtDirection(Vector3 position, Vector3 eyeDirection)
 
 Matrix Matrix::PerspectiveFOV(float fov, float aspectRatio, float zNear, float zFar)
 {
-	float tanHalfFOV = (float)tanf((float)fov/2);
+	/*
+	float tanHalfFOV = (float)tanf((float)fov/2.0f);
 	float zRange = zNear - zFar;
-
+	cout << tanHalfFOV <<endl;
 	Matrix r = Matrix(
-		(float)1.0f / tanHalfFOV * aspectRatio , 0 , 0 , 0 ,
+		(float)1.0f / (float)tanHalfFOV * (float)aspectRatio , 0 , 0 , 0 ,
 		0 , (float)1.0f / tanHalfFOV , 0 , 0 ,
 		0 , 0 , (float)(-zNear -zFar)/zRange , (float) 2 * zFar * zNear / zRange , 
 		0 , 0 , 1 , 0) ;
+		*/
+	Matrix r;
+
+	const float ar         = aspectRatio;
+	const float zRange     = zNear - zFar;
+	const float tanHalfFOV = tanf(fov / 2.0f);
+
+	r.Mtrx[0][0] = 1.0f/(tanHalfFOV * ar); r.Mtrx[0][1] = 0.0f;            r.Mtrx[0][2] = 0.0f;            r.Mtrx[0][3] = 0.0;
+	r.Mtrx[1][0] = 0.0f;                   r.Mtrx[1][1] = 1.0f/tanHalfFOV; r.Mtrx[1][2] = 0.0f;            r.Mtrx[1][3] = 0.0;
+	r.Mtrx[2][0] = 0.0f;                   r.Mtrx[2][1] = 0.0f;            r.Mtrx[2][2] = (-zNear - zFar)/zRange ; r.Mtrx[2][3] = 2.0f*zFar*zNear/zRange;
+	r.Mtrx[3][0] = 0.0f;                   r.Mtrx[3][1] = 0.0f;           r.Mtrx[3][2] = 1.0f;            r.Mtrx[3][3] = 0.0;    
 
 	return r;
 }

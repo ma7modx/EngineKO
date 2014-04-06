@@ -9,8 +9,6 @@ GamePlayManager::GamePlayManager()
 	CurrentPart = 0 ;
 	Gameplay = new GamePlayCaller() ;
 	Gameplay->CreateGameParts();
-	
-	
 }
 int GamePlayManager::GameUpdateLOOP()
 {
@@ -43,3 +41,7 @@ int  GamePlayManager::GameDrawLOOP()
 	return 0 ;
 }
 
+GamePlayManager::~GamePlayManager()
+{
+	delete Gameplay;
+}

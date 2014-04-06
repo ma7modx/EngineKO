@@ -21,6 +21,7 @@
 #include "InputDeviceManager.h"
 #include "Button.h"
 #include "UIManager.h"
+#include "BasicShader.h"
 using namespace std ;
 
 class _Game1 : public PartOfGamePlay
@@ -34,126 +35,130 @@ public :
 	GeometryIVBO* GPU ;
 	Shader* sshader ;
 	GeometryIVBO* shaderGPU;
+	VertexAttributes* att;
 	Texture* tex;
-	Button* button ;
-	UIManager* Uimanager ;
-	int ID ;
+	BasicShader* basicShader;
+
 	unsigned int img;
 	float r ;
 	void Initialize()
 	{
-		IVertex& vref = VertexColor(Vector3(1) , MColor::Red) ;
-		cout <<vref.GetSize()<<endl;
-		IVertex v = VertexColor(Vector3(1) , MColor::Red) ;
-		cout <<v.GetSize()<<endl;
-
 		r = 0 ;
-			
-			mesh = new Mesh("mesh" , "meshmesh.obj");
 
+		mesh = new Mesh("mesh" , "meshmesh.obj");
 		Vertex *V1, *V2,*V3 ;
 		V1 = new VertexColor(Vector3(0,0,0) , MColor::Blue ) ;
 		V2 = new  VertexColor(Vector3(1,1,0)  ,MColor::Black) ;
 		V3 = new VertexColor(Vector3(-1,1,0) ,MColor::Red) ;
 		T = new Triangle(V1 , V2 , V3) ;
 
-		IVertex *cc [3];
-		cc[0]=  new Vertex( Vector3(0,0,0)) ;cc[1] = new Vertex (Vector3(1,1,0)) ;cc[2] = new Vertex(Vector3(-1,1,0));
-
 		VertexColor offset[3] = {VertexColor( Vector3(0,0,0) , MColor(10,2,4)) ,VertexColor (Vector3(1,1,0), MColor(10,200,4)) ,VertexColor(Vector3(-1,1,0), MColor(10,2,200))}  ;
 
 		int ind [] = {0,1,2} ;
 
 		GPU = new GeometryIVBO(3 , offset , 3 , ind) ;
-//		 tex = new Texture(1) ;
-		
-		sshader = new Shader("mshader" , "vertex.vs","fragment.frag") ;
-		tranShader = new Shader ("masd" , "TransofrmationShader.vs" , "SimpleFragmentShader.fragmentshader") ;
+		//		 tex = new Texture(1) ;
 
-		VertexColor vc [4]={VertexColor( Vector3(-0.2,0.2,-0) , MColor(10,2,4)) ,VertexColor (Vector3(-0.2,-0.2,-0), MColor(10,200,4)) ,VertexColor(Vector3(0.2,-0.2,-0), MColor(10,2,200)) , VertexColor(Vector3(0.2,0.2,-0), MColor(10,2,200))};  
+		sshader = new Shader("mshader" , "vertex.vs","fragment.frag") ;
+		tranShader = new Shader ("masd" , "TransofrmationShader.vs" , "SimpleFragmentShader.frag") ;
+
+		float Z_ = 0 ;
+		//VertexColor vc [4]={VertexColor( Vector3(-0.2,0.2,-Z_) , MColor(10,2,4)) ,VertexColor (Vector3(-0.2,-0.2,-Z_), MColor(10,200,4)) ,VertexColor(Vector3(0.2,-0.2,-Z_), MColor(10,2,200)) , VertexColor(Vector3(0.2,0.2,-Z_), MColor(10,2,200))};  
+		VertexTexture vc [4]={VertexTexture( Vector3(-0.2,0.2,-Z_) , Vector2(0,0)) ,VertexTexture (Vector3(-0.2,-0.2,-Z_), Vector2(0,1)) ,VertexTexture(Vector3(0.2,-0.2,-Z_), Vector2(1,1)) , VertexTexture(Vector3(0.2,0.2,-Z_), Vector2(1,0))};  
 
 		int ass [] = {0,1 , 2 ,	3 } ;
+		cout << "Geometry IVBO ...\n" ;
 		shaderGPU= new GeometryIVBO(4 , vc , 4 , ass);
 
-		ID = tex->LoadTexture("001.bmp");
-		button = new Button("Untitled.bmp" , Vector2(0,0) ,1 , 1);
-		Uimanager = new UIManager();
+		cout << "texture ...\n" ;
+		tex = new Texture("sjs" , "images22.bmp");
+		cout <<tex->GetID() <<endl ;
+
+		att = new VertexAttributes() ;
+
+		cout << "initialization finished ...\n" <<endl ;
+		fsttime = 1 ;
 		
-		//  img=loadTexture("img.jpg");
+		basicShader = new BasicShader();
 	}
+	int fsttime ;
 	void Update()
 	{
-		Uimanager->Update();
-		button->IsClicked();
 	}
-
+	void DebugException(char* str )
+	{
+		if(fsttime)
+		{
+			cout << str << " ...\n";
+		}
+	}
 	void Draw()
 	{
-	glLoadIdentity();
-	glScalef(0.5,0.5,0.5);
+		DebugException("begin Drawing");
 		// pass the camera matrix to the render manager
 		
+		DebugException("Triangle1");
 		T->Debug();
-		GPU->Draw();
-
-	//	button->Draw();
-/*
-	glBindTexture(GL_TEXTURE_2D , ID );
-	
-	glBegin(GL_QUADS);
-	{
-		glVertex3f(0,1,-30); glTexCoord2f(0,1);
-
-		glVertex3f(0,0,-30); glTexCoord2f(0,0);
-		glVertex3f(1,0,-30); glTexCoord2f(1,0);
-		glVertex3f(1,1,-30); glTexCoord2f(1,1);
-	}
-	glEnd();
-	*/
-
-		glPushMatrix();
-		glColor3f(0.3,0,0);
-		glLoadIdentity();
-		glScalef(0.3,0.3,0.3);
-	glTranslatef(0,0,-0.3);
-		glRotatef(r+=0.04,1,1,0);
 		
+		DebugException("Triangle2");
+		GPU->Draw();
+		
+		DebugException("mesh");
+		glPushMatrix();
+		glColor3f(0.3f,0.0f,0.0f);
+		glLoadIdentity();
+		glScalef(1,1,1);
+		glTranslatef(0,0,-2);
+		glRotatef(r+=0.04,1,1,0);
 		mesh->Draw();
 		glPopMatrix();
 		
-
-		// sshader->Active();
+		DebugException("texture");
+		r+= 0.04;
 		
-		tranShader->Active();
-
-		tranShader->SetUniform("projection" , Matrix::Translation(Vector3(r/109,0,0)) ) ; // update
-
-		// geo draw will get att frm the shader 
-		// 
-
-		//sshader->SetUniform("color" , Vector3(0.6,1,0.4)) ;
-		VertexAttributes* att = new VertexAttributes(2) ;
-
-		att->AddAttribute(tranShader->GetAttribute("vertex"), VertexData::VERTEX) ;
-		att->AddAttribute(tranShader->GetAttribute("inputcolor"),  VertexData::COLOR);
-
-		// send shader , draw mode
-		shaderGPU->Draw(2, att->GetAttributes(), Shapes::QUAD); 
-
-		tranShader->Deactive();
-		//sshader->Deactive();
-
+		tex->Use();
 		
+		basicShader->SetUniforms(BasicShaderUniforms::SCALE , Matrix::Scale(Vector3(10)));
+		basicShader->SetUniforms(BasicShaderUniforms::TRANSFORMATION , Matrix::Rotation(Vector3(r , 20 , 0))  * Matrix::Translation(Vector3(0,2,2)));
+
+		basicShader->Begin(); 
+		shaderGPU->Draw(4, basicShader->GetAttributes(), Shapes::QUAD); 
+		basicShader->End();
+		
+		
+		DebugException("finished drawing");
+		fsttime = 0 ;
 	}
 	bool Finished() 
 	{
-		bool ret = false ;
-		if(ret)
-			//delete m , T  ;
-				delete T ;
-		return ret ; 
+	
+		return 0 ;
 	}
+	void Delete()
+	{
+		mesh->Delete();
+		delete mesh;
+		
+		delete att ;
+		
+		delete T ;
+		
+		tranShader->Delete(); 
+		delete tranShader;
 
+		GPU->Delete();
+		delete GPU;
+
+		sshader->Delete();
+		delete sshader;
+
+		shaderGPU->Delete();
+		delete shaderGPU;
+		
+		delete tex ;
+
+		delete basicShader;
+	}
 	/*
 	unsigned int loadTexture(const char* name)
 	{

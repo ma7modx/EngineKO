@@ -73,7 +73,7 @@ public:
 		char loadedMaterial[200] ;
 		strcpy(loadedMaterial , "\0") ;
 		bool isMaterialloc = false ;
-		for(int i = 0 ; i < materiaFile.size() ;++i)
+		for(int i = 0 ; i < (int)materiaFile.size() ;++i)
 		{
 			if(materiaFile[i][0] == '#')
 				continue ;
@@ -82,47 +82,47 @@ public:
 				PushMaterialData(isMaterialloc , loadedMaterial , *Data , materials );
 				isMaterialloc = false ;
 				char dum[200] ;
-				sscanf(materiaFile[i].c_str() , "newmtl %s" , dum ) ;
+				sscanf_s(materiaFile[i].c_str() , "newmtl %s" , dum ) ;
 				Data->name = dum ;
 			}
 			else if (materiaFile[i][0] == 'N' && materiaFile[i][1] == 's')
 			{
-				sscanf(materiaFile[i].c_str() , "Ns %f" , &Data->ns);
+				sscanf_s(materiaFile[i].c_str() , "Ns %f" , &Data->ns);
 				isMaterialloc = true ;
 			}
 			else if (materiaFile[i][0] == 'K' && materiaFile[i][1] == 'a')
 			{
-				sscanf(materiaFile[i].c_str() , "Ka %f %f %f" , &Data->AmbLight[0] , &Data->AmbLight[1] , &Data->AmbLight[2]);
+				sscanf_s(materiaFile[i].c_str() , "Ka %f %f %f" , &Data->AmbLight[0] , &Data->AmbLight[1] , &Data->AmbLight[2]);
 				isMaterialloc = true ;
 			}
 			else if (materiaFile[i][0] == 'K' && materiaFile[i][1] == 'd')
 			{
-				sscanf(materiaFile[i].c_str() , "Kd %f %f %f" , &Data->DifLight[0] , &Data->DifLight[1] , &Data->DifLight[2]);
+				sscanf_s(materiaFile[i].c_str() , "Kd %f %f %f" , &Data->DifLight[0] , &Data->DifLight[1] , &Data->DifLight[2]);
 				isMaterialloc = true ;
 			}
 			else if (materiaFile[i][0] == 'K' && materiaFile[i][1] == 's')
 			{
-				sscanf(materiaFile[i].c_str() , "Ks %f %f %f" , &Data->SpecLight[0] , &Data->SpecLight[1] , &Data->SpecLight[2]);
+				sscanf_s(materiaFile[i].c_str() , "Ks %f %f %f" , &Data->SpecLight[0] , &Data->SpecLight[1] , &Data->SpecLight[2]);
 				isMaterialloc = true ;
 			}
 			else if (materiaFile[i][0] == 'N' && materiaFile[i][1] == 'i')
 			{
-				sscanf(materiaFile[i].c_str() , "Ni %f" , &Data->ni);
+				sscanf_s(materiaFile[i].c_str() , "Ni %f" , &Data->ni);
 				isMaterialloc = true ;
 			}
 			else if (materiaFile[i][0] == 'd' && materiaFile[i][1] == ' ')
 			{
-				sscanf(materiaFile[i].c_str() , "d %f" , &Data->alpha);
+				sscanf_s(materiaFile[i].c_str() , "d %f" , &Data->alpha);
 				isMaterialloc = true ;
 			}
 			else if (materiaFile[i][0] == 'i' && materiaFile[i][1] == 'l')
 			{
-				sscanf(materiaFile[i].c_str() , "illum %d" , &Data->illum);
+				sscanf_s(materiaFile[i].c_str() , "illum %d" , &Data->illum);
 				isMaterialloc = true ;
 			}
 			else if (materiaFile[i][0] == 'm' && materiaFile[i][1] == 'a')
 			{
-				sscanf(materiaFile[i].c_str() , "map_Kd %s" , &loadedMaterial);
+				sscanf_s(materiaFile[i].c_str() , "map_Kd %s" , &loadedMaterial);
 				isMaterialloc = true ;
 //					Texture tex = Texture("tex1" , loadedMaterial ) ;
 	//				Data->TextureID = tex.GetID();

@@ -17,6 +17,9 @@ public:
 	virtual void LOOP() = 0;
 
 	virtual unsigned int LoadTexture(const char*filename) = 0;
+	virtual void BindTexture(unsigned int ID) = 0;
+	virtual void DeleteTexture(int size , unsigned int* ptr) = 0;
+	virtual void DeleteTexture(unsigned int* IDptr) = 0;
 
 	// set vertex once using vertexdata .. problem wth casting no net
 	//virtual void SetVertex(VertexData , IVertex) =0;
@@ -35,19 +38,23 @@ public:
 	virtual void BeginDrawList(int& ID) = 0;
 	virtual void EndDrawList() = 0;
 
-	virtual unsigned int LoadShader(const char *vertex_file_path, const char *fragment_file_path) = 0;
+	virtual unsigned int LoadShader(const char *vertex_file_path, const char *fragment_file_path , unsigned int& out_VS , unsigned int& out_FS )= 0;
 	virtual void ActiveShader(unsigned int ID) = 0;
 	virtual void DeactiveShader() = 0;
-	virtual void DeleteShader(unsigned int ID) = 0;
+	virtual void DeleteShader(unsigned int programID, unsigned int VS , unsigned int FS) = 0;
 	virtual int GetShaderAttrib(unsigned int ID, const char* attribName) = 0;
 	virtual int GetShaderUniform(unsigned int ID, const char* attribName) = 0;
 	virtual void ShaderUniformf(unsigned int Location, float f1) = 0;
 	virtual void ShaderUniformf(unsigned int Location, Vector2) = 0;
 	virtual void ShaderUniformf(unsigned int Location, Vector3) = 0;
 	virtual void ShaderUniformMat(unsigned int Location, Matrix) = 0;
+	
 	virtual void FillBuffer(unsigned int BufID, void* data, int sizeOfarrayInBytes, GPUDrawMode Mode, BufferType BType) = 0;//allocate and bind and save data
 	virtual void BindBuffer(BufferType Btype , unsigned int BufID) = 0;
 	virtual void ReserveBuffer(unsigned int& BufID) = 0;
+	virtual void DeleteBuffer(int size , unsigned int* ptr) = 0;
+	virtual void DeleteBuffer(unsigned int* IDptr) = 0;
+	
 	virtual void VBOModeDraw(int numOfVertices, int strideBetweenVertices, void* pointerToTheBeginingOfData[], VertexData mode, Shapes shape) = 0;
 
 	virtual void IVBOModeDraw(unsigned int ibo, int numOfIndices ,int numOfVertices , int strideBetweenVertices, void* pointerToTheBeginingOfData[], VertexData mode, Shapes shape) = 0;
@@ -59,5 +66,4 @@ public:
 	virtual void ListDrawBegin(int &ID) = 0;
 	virtual void ListDrawEnd() = 0;
 	virtual void ListDraw(int ID) = 0;
-	//	virtual void AllocateData() = 0 ;
 };

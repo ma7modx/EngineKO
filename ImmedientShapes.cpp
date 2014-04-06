@@ -6,7 +6,7 @@
 void VShape::Transform(Matrix Transformation)
 {
 	Position = Position * Transformation ;
-	for(int i = 0 ; i < vertices.size() ; ++i)
+	for(int i = 0 ; i < (int)vertices.size() ; ++i)
 		vertices[i]->Position =  vertices[i]->Position * Transformation ; 
 }
 
@@ -14,8 +14,8 @@ void VShape::Debug()
 {
 	GameController::GetGameController()->Graphicsmanager->BeginLine();
 
-	for(int i = 0 ; i < vertices.size() ; ++i)
-		for(int j = i+1 ; j < vertices.size() ; ++j)
+	for(int i = 0 ; i < (int)vertices.size() ; ++i)
+		for(int j = i+1 ; j < (int)vertices.size() ; ++j)
 		{
 			vertices[j]->SetVertex();
 			vertices[i]->SetVertex();	

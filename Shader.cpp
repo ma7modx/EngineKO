@@ -5,9 +5,9 @@
 #include "Vector3.h"
 #include "Matrix.h"
 
-Shader::Shader(string name , const char *vertex_file_path,const char *fragment_file_path) :Resource(name , this)
+Shader::Shader(string name , const char *vertex_file_path,const char *fragment_file_path) //:Resource(name , this)
 	{
-		programID = GameController::GetGameController()->Graphicsmanager->LoadShader(vertex_file_path , fragment_file_path) ;
+		programID = GameController::GetGameController()->Graphicsmanager->LoadShader(vertex_file_path , fragment_file_path , VS , FS) ;
 	}
 void Shader::Active()
 {
@@ -41,7 +41,11 @@ void Shader::SetUniform(const char* uniform , Matrix f)
 {
 	GameController::GetGameController()->Graphicsmanager->ShaderUniformMat(GetUniform(uniform) , f) ;
 }
+void Shader::Delete()
+{
+	GameController::GetGameController()->Graphicsmanager->DeleteShader(programID , VS , FS) ;
+}
 Shader::~Shader()
 {
-	GameController::GetGameController()->Graphicsmanager->DeleteShader(programID) ;
+	// Delete();
 }

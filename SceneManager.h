@@ -37,8 +37,8 @@ public:
 	}
 	~SceneManager()
 	{
-		delete scene;
-		delete sceneGraph;
+		//delete scene;
+		//delete sceneGraph;
 	}
 
 private:

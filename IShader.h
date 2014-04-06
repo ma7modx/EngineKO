@@ -4,14 +4,24 @@
 #include <string>
 using namespace std ;
 
-class IShader // bfkr a5leh icomponent
+class IShader : public Shader
 {
 public :
-	IShader(string name , const char * vs , const char * fs) ;
-	virtual void SetUniforms() = 0 ;
-	virtual void Execute(void DrawFunPtr()) = 0;
-	virtual VertexAttributes GetAttributes() = 0 ;
-private :
-	string name ;
-
+	IShader(string name , const char * vs , const char * fs) : Shader(name , vs , fs) 
+	{
+		attributes = new VertexAttributes();
+	}
+	virtual void Begin() = 0;
+	virtual void End() = 0;
+	int* GetAttributes()
+	{
+		return attributes->GetAttributes();
+	}
+	~IShader()
+	{
+		Delete();
+		delete attributes ;
+	}
+protected:
+	VertexAttributes* attributes ;
 };

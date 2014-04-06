@@ -30,10 +30,7 @@ public:
 	short GetOffset(int index) 
 	{ return sizeof (float) ; }
 	VertexData GetData() ;
-	~Vertex()
-	{
 	
-	}
 };
 
 class VertexNormal : public Vertex
@@ -58,7 +55,6 @@ public:
 			return 4+sizeof(Vector3);
 	} 
 	VertexData GetData() ;
-	~VertexNormal(){};
 };
 
 
@@ -84,7 +80,6 @@ public:
 			return 4+sizeof(Vector3);
 	} 
 	VertexData GetData() ;
-	~VertexColor(){};
 };
 
 class VertexTexture : public Vertex
@@ -100,7 +95,7 @@ public :
 
 	void SetVertex(Vector3 Position, Vector2 TexCoord );
 	void SetVertex();
-	short GetSize() { return sizeof(Vector3)+sizeof(Vector2) ; } 
+	short GetSize() { return sizeof(Vector3)+sizeof(Vector2)+sizeof(float) ; } 
 	short GetOffset(int index)
 	{
 		if(index == 0)
@@ -113,9 +108,7 @@ public :
 			return 4+sizeof(Vector3) ;
 	}
 	VertexData GetData() ;
-	~VertexTexture()
-	{
-	}
+	
 };
 
 class VertexColorNormal : public VertexColor
@@ -132,7 +125,7 @@ public:
 	
 	void SetVertex();
 	void SetVertex(Vector3 Position, MColor color, Vector3 Normal);
-	short GetSize() { return 4+sizeof(Vector3)+sizeof(MColor)+sizeof(Vector3) ; } 
+	short GetSize() { return sizeof(Vector3)+sizeof(MColor)+sizeof(Vector3)+sizeof(float) ; } 
 	short GetOffset(int index) 
 	{ 
 		if(index == 0)
@@ -143,9 +136,7 @@ public:
 			return 4+sizeof(Vector3)+ sizeof(MColor) ;
 	}
 	VertexData GetData() ;
-	~VertexColorNormal()
-	{
-	}
+	
 };
 
 class VertexTextureNormal : public VertexTexture
@@ -163,7 +154,7 @@ public:
 
 	void SetVertex(Vector3 Position, Vector2 TexCoord, Vector3 Normal);
 	void SetVertex();
-	short GetSize() { return 4+sizeof(Vector3)+sizeof(Vector2)+sizeof(Vector3) ; } 
+	short GetSize() { return sizeof(Vector3)+sizeof(Vector2)+sizeof(Vector3)+sizeof(float) ; } 
 	short GetOffset(int index) 
 	{ 
 		if(index == 0)
@@ -176,7 +167,5 @@ public:
 			return 4+sizeof(Vector3)+ sizeof(Vector2) ;
 	}
 	VertexData GetData() ;
-	~VertexTextureNormal()
-	{
-	}
+	
 };

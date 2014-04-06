@@ -19,6 +19,8 @@ public :
 	
 	int GameUpdateLOOP();
 	int GameDrawLOOP();
+	// delete GameplayCaller Gameplay
+	~GamePlayManager();
 private :
 	GamePlayCaller* Gameplay ;
 	int CurrentPart ;

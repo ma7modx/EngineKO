@@ -9,7 +9,10 @@ public:
 		geometry = new GeometryIVBO (numOfVertices , vertices, numOfIndices , indices ) ;
 	}
 
-	~IVBODrawBehavior() {}
+	~IVBODrawBehavior() 
+	{
+		delete geometry;
+	}
 
 	GeometryIVBO* GetGeometry()
 	{
@@ -23,6 +26,7 @@ public:
 	{
 		geometry->Draw();
 	}
+
 private:
 	GeometryIVBO* geometry;
 };

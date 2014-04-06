@@ -7,12 +7,15 @@ class GeometryList ;
 class Vector3;
 class Face;
 
-class Mesh:public Resource
+class Mesh// :public Resource
 {
 public :
 	Mesh(string Name , const char * Filename) ;
 	void Draw();
-	
+	void Delete();
+
+	// does nothing but there's delete function to use instead
+	~Mesh();
 protected :
 	GeometryList* Geometry ;
 	

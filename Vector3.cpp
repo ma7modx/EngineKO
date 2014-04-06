@@ -85,6 +85,8 @@ Vector3 Vector3::UP = Vector3(0,1,0) ;
 		if (i == 0) return X;
 		if (i == 1) return Y;
 		if (i == 2) return Z;
+		else 
+			throw exception ("Accessing a wrong index");
 	}
 
 	

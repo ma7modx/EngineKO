@@ -7,5 +7,6 @@ void GamePlayCaller::CreateGameParts()
 	}
 void GamePlayCaller::DeleteGameParts()
 	{
+		GameParts[0]->Delete();
 		delete GameParts[0] ;
 	}

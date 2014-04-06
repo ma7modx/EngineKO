@@ -10,11 +10,13 @@ public :
 class VertexAttributes
 {
 public :
-	VertexAttributes(int Size)
+	
+	VertexAttributes()
 	{
-		for(int i = 0 ; i < Size ; ++i)
+		for(int i = 0 ; i < 4 ; ++i)
 			arr[i] = -1 ;
 	}
+	
 	void AddAttribute(int value , VertexData Data)
 	{
 		if(Data.Mode == VertexData::VERTEX) // log base 2
@@ -30,8 +32,9 @@ public :
 	{
 		return arr ;
 	}
+
 private :
-	int arr[] ;
+	int arr[4] ; // attribute indices
 };
 enum GPUDrawMode { STATIC  , DYNAMIC  , STREAM } ;
 enum Shapes { TRIANGLE , LINE , QUAD } ;

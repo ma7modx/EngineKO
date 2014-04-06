@@ -1,8 +1,10 @@
+//#include "KeyboardInput.h"
 
 class GraphicsManager ;
 class GamePlayManager ;
 class ResourceManager ;
 class MemoryManager ;
+class KeyboardInput ;
 
 class GameController
 {
@@ -24,8 +26,10 @@ public :
 	{
 		return Controller ;
 	}
-
+	// deletes GamePlayManager , ResourceManager , MemoryManager
+	~GameController();
 private :
+	KeyboardInput* keyboard ;
 	static GameController* Controller ;
 
 };

@@ -1,12 +1,24 @@
 #pragma comment(lib, "glew32.lib")
-#pragma comment(lib, "opengl32.lib")
-
+//#pragma comment(lib, "opengl32.lib")
+// Project Properties -> Linker -> Input -> Additional Dependencies
 #pragma once
-
 #include <GL\glew.h>
-#include <GL\freeglut.h>
 #include <GL\GL.h>
 #include <GL\GLU.h>
+#include <GL\freeglut.h>
+
+//#include <SDL/SDL.h>
+/*
+#include <SDL/SDL_main.h>
+#include <SDL/SDL_filesystem.h>
+#include <SDL/SDL_config.h>
+#include <SDL/SDL_video.h>
+#include <SDL/SDL_system.h>
+#include <SDL/SDL_surface.h>
+#include <SDL/SDL_opengl.h>
+#include <SDL/SDL_events.h>
+#include <SDL/SDL_gamecontroller.h>
+*/
 #include "stb_image.h"
 #include <iostream>
 #include <fstream>
@@ -20,8 +32,11 @@
 using namespace std;
 class OpenGL :public GraphicsManager
 {
-
 public:
+	static bool ClosePrograme , updateFinished , drawFinished;
+	const static int orthoValues = 5 ;
+	static float angle ;
+
 	OpenGL(int iArgc, char** cppArgv, Window window) :GraphicsManager(window)
 	{
 		this->widnow = window;
@@ -31,31 +46,40 @@ public:
 	void Start()
 	{
 		glutInit(&iArgc, cppArgv);
-		
+
 		glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
 		glutInitWindowSize(this->widnow.WindoWidth, this->widnow.Windowheight);
 		glutInitWindowPosition(this->widnow.Windowposition.X, this->widnow.Windowposition.Y);
-		//glOrtho (0, this->widnow.WindoWidth, this->widnow.Windowheight, 0, this->widnow.Near,  this->widnow.Far);
-		
 		glutCreateWindow(this->widnow.Title.c_str());
 
-		glewInit();
+		//glOrtho (0, this->widnow.WindoWidth, this->widnow.Windowheight, 0, this->widnow.Near,  this->widnow.Far);
+		glutInitContextVersion(4, 1);
+		glutInitContextProfile(GLUT_CORE_PROFILE);
+
+
+		//	SDL_Window* window = SDL_CreateWindow("SDL window" , this->widnow.Windowposition.X, this->widnow.Windowposition.Y 
+		//	,this->widnow.WindoWidth, this->widnow.Windowheight , SDL_WINDOW_OPENGL|SDL_WINDOW_RESIZABLE ) ;
+
+
+		if (glewInit()) {
+			cerr << "Unable to initialize GLEW ... exiting" << endl;
+			exit(EXIT_FAILURE);
+		}
 
 		cout << glGetString(GL_VERSION) <<endl;
 		cout << glGetString(GL_SHADING_LANGUAGE_VERSION) << endl ;
 
-		glewExperimental = GL_TRUE;
-		
+		//glewExperimental = GL_TRUE;
 
-		GLclampf r = this->widnow.color.R, g = this->widnow.color.G, b = this->widnow.color.B;
-		glClearColor(r, g, b, 1);
+		glFlush();
+		glClearColor(this->widnow.color.R, this->widnow.color.G, this->widnow.color.B, 1);
 
-		glEnable(GL_BLEND);
+		//glEnable(GL_BLEND);
 
 		glEnable(GL_DEPTH_TEST);
 
-	//	glEnable(GL_TEXTURE_2D);
-//		glActiveTexture(GL_TEXTURE0);
+		glEnable(GL_TEXTURE_2D);
+		glActiveTexture(GL_TEXTURE0);
 
 		/*
 		glMatrixMode(GL_PROJECTION);
@@ -64,27 +88,30 @@ public:
 		glMatrixMode(GL_MODELVIEW);
 		*/
 
+		// /*
 		//glViewport(0, 0, this->widnow.WindoWidth, this->widnow.Windowheight);
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
-		glOrtho(-1, 1, 1,
-			-1, -1, 1);
+		glOrtho(-orthoValues, orthoValues,
+			-orthoValues,orthoValues,
+			-orthoValues, orthoValues);
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
+		// */
 
 		GLfloat light_ambient[] = { 0.0, 0.0, 0.0, 1.0 };
 		GLfloat light_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
 		GLfloat light_specular[] = { 1.0,1.0, 1.0, 1.0 };
 		GLfloat light_position[] = { 0, 1.0, 1.0, 0.0 };
-		glShadeModel(GL_SMOOTH);
+		//glShadeModel(GL_SMOOTH);
 
 		glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
 		glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
 		glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
 		glLightfv(GL_LIGHT0, GL_POSITION, light_position);
 
-		//glEnable(GL_LIGHTING);
-		//glEnable(GL_LIGHT0);
+		glEnable(GL_LIGHTING);
+		glEnable(GL_LIGHT0);
 
 	}
 	//-------------------------------------------------------------------------
@@ -112,45 +139,11 @@ public:
 			frameCount = 0;
 		}
 	}
-	static void UpdateCall()
-	{
-		calculateFPS();
-
-		GameController::GetGameController()->GameUpdateLOOP();
-		// calculate elapsed time
-		glutPostRedisplay();
-	}
-	static float angle ;
-	static void DrawCALL()
-	{
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-		GameController::GetGameController()->GameDrawLOOP();
-
-		glPushMatrix();
-		glLoadIdentity();
-		glTranslatef(0,0,-0.2);
-		glRotatef(OpenGL::angle,1,0,0);
-	//	glutSolidCube(1.5);
-	//	glutSolidSphere(1.0, 50, 50);
-		OpenGL::angle+=0.01;
-		glPopMatrix();
-
-		glutSwapBuffers();
-	}
-	static void Timer(int iUnused)
-	{
-		glutPostRedisplay();
-		glutTimerFunc(GameController::GetGameController()->Graphicsmanager->widnow.FramesPerSec, Timer, 1);//1 to 30 to inf [very fast = 1] , 10
-	}
-	void LOOP()
-	{
-		glutIdleFunc(UpdateCall);
-		glutDisplayFunc(DrawCALL);
-		//	Timer(1) ;
-		glutMainLoop();
-
-	}
+	static void UpdateCall();
+	static void DrawCALL();
+	static void Close();
+	static void Timer(int iUnused);
+	void LOOP();
 
 	void SetVertexPosition(Vector3 pos)
 	{
@@ -167,6 +160,10 @@ public:
 	void SetVertexNormal(Vector3 normal)
 	{
 		glNormal3f(normal.X, normal.Y, normal.Z);
+	}
+	void BindTexture(unsigned int ID)
+	{
+		glBindTexture(GL_TEXTURE_2D, ID);
 	}
 	unsigned int LoadTexture(const char*filename)
 	{
@@ -186,23 +183,9 @@ public:
 
 		return texbufferID;
 	}
-	/*
-	void AllocateTexture(unsigned int *TexID)
-	{
-	glGenTextures(1,TexID) ;
-	}
-	void BindTexture(int TexID)
-	{
-	glBindTexture(GL_TEXTURE_2D , TexID) ;
-	}
-	void AssignTexture(int width,int height,int dipth , void *Pixels)
-	{
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, Pixels);
+	void DeleteTexture(int size , unsigned int* ptr);
+	void DeleteTexture(unsigned int* IDptr);
 
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	}
-	*/
 	void BeginTriangle()
 	{
 		glBegin(GL_TRIANGLES);
@@ -270,9 +253,10 @@ public:
 
 		GPUModeDeactive(mode);
 	}
-	void IVBOShaderModeDraw(unsigned int ibo , int numOfIndices, int numOfShaders, int ShaderAttributesindices[], int strideBetweenVertices, void* pointerToTheBeginingOfData[], VertexData mode, Shapes shape)
+	void IVBOShaderModeDraw(unsigned int ibo , int numOfIndices, int numOfShaderAttributes, int ShaderAttributesindices[], int strideBetweenVertices, void* pointerToTheBeginingOfData[], VertexData mode, Shapes shape)
 	{
-		GPUShaderModeActive(numOfShaders, ShaderAttributesindices); 
+		// num of attributes
+		GPUShaderModeActive(numOfShaderAttributes, ShaderAttributesindices); 
 
 		ShaderAttributePointer( ShaderAttributesindices , strideBetweenVertices, pointerToTheBeginingOfData, mode) ;
 
@@ -280,12 +264,14 @@ public:
 
 		IVBODraw(numOfIndices , shape);
 
-		GPUShaderModeDeactive(numOfShaders, ShaderAttributesindices);
+		GPUShaderModeDeactive(numOfShaderAttributes, ShaderAttributesindices);
 	}
 	void ReserveBuffer(unsigned int& BufID)
 	{
 		glGenBuffers(1, &BufID);
 	}
+	void DeleteBuffer(int size , unsigned int* ptr) ;
+	void DeleteBuffer(unsigned int* IDptr) ;
 	void FillBuffer(unsigned int BufID, void* data, int sizeOfarray, GPUDrawMode Mode, BufferType BType)
 	{
 		//glGenBuffers(1, &BufID);
@@ -316,28 +302,34 @@ public:
 	}
 
 
-	unsigned int LoadShader(const char *vertex_file_path, const char *fragment_file_path)
+	unsigned int LoadShader(const char *vertex_file_path, const char *fragment_file_path , unsigned int& out_VS , unsigned int& out_FS )
 	{
-		unsigned int vertexShader, fragmentShader, programID;
+		unsigned int  programID;
 		std::string source;
 		cout << endl << endl;
 		loadFile(vertex_file_path, source);
-		vertexShader = loadShader(source, GL_VERTEX_SHADER);
+		out_VS = loadShader(source, GL_VERTEX_SHADER);
 		source = "";
 		cout << endl << endl;
 		loadFile(fragment_file_path, source);
-		fragmentShader = loadShader(source, GL_FRAGMENT_SHADER);
+		out_FS = loadShader(source, GL_FRAGMENT_SHADER);
 
 		programID = glCreateProgram();
-		glAttachShader(programID, vertexShader);
-		glAttachShader(programID, fragmentShader);
+		glAttachShader(programID, out_VS);
+		glAttachShader(programID, out_FS);
 
 		glLinkProgram(programID);
 
+		glDetachShader(programID , out_VS);
+		glDetachShader(programID , out_FS);
+
 		return programID;
 	}
-	void DeleteShader(unsigned int programID)
+	void DeleteShader(unsigned int programID, unsigned int VS , unsigned int FS)
 	{
+		glDeleteShader(VS);
+		glDeleteShader(FS);
+		glUseProgram(0);
 		glDeleteProgram(programID);
 	}
 	void ActiveShader(unsigned int ID)
@@ -457,8 +449,6 @@ private:
 		if (mode.Mode & 4)
 			glNormalPointer(GL_FLOAT, strideBetweenVertices, pointerToTheBeginingOfData[3]);
 
-		//if(mode.Mode & 8)
-		//gltexturepointer
 	}
 	void GPUShaderModeActive(int numOfShaders, int Shadersindices[])
 	{
@@ -503,106 +493,3 @@ private:
 	}
 };
 
-
-
-
-
-/*	unsigned int LoadShader(const char *vertex_file_path,const char *fragment_file_path)
-{
-// Create the shaders
-unsigned int VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
-unsigned int FragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
-
-// Read the Vertex Shader code from the file
-string VertexShaderCode;
-ifstream VertexShaderStream(vertex_file_path, ios::in);
-if(VertexShaderStream.is_open())
-{
-std::string Line = "";
-while(getline(VertexShaderStream, Line))
-VertexShaderCode += "\n" + Line;
-VertexShaderStream.close();
-}
-else
-fprintf(stdout,"Cannot open vertexShader : %s \n" , vertex_file_path) ;
-
-
-// Read the Fragment Shader code from the file
-string FragmentShaderCode;
-ifstream FragmentShaderStream(fragment_file_path, ios::in);
-if(FragmentShaderStream.is_open()){
-string Line = "";
-while(getline(FragmentShaderStream, Line)) // endline after each line
-FragmentShaderCode += "\n" + Line;
-FragmentShaderStream.close();
-}
-else
-fprintf(stdout,"Cannot open fragmentShader : %s \n" , fragment_file_path) ;
-
-GLint Result = GL_FALSE;
-int InfoLogLength;
-
-// Compile Vertex Shader
-printf("Compiling shader : %s\n", vertex_file_path);
-char const * VertexSourcePointer = VertexShaderCode.c_str();
-glShaderSource(VertexShaderID, 1, &VertexSourcePointer , NULL);
-glCompileShader(VertexShaderID);
-
-// Check Vertex Shader
-glGetShaderiv(VertexShaderID, GL_COMPILE_STATUS, &Result);
-glGetShaderiv(VertexShaderID, GL_INFO_LOG_LENGTH, &InfoLogLength);
-vector<char> VertexShaderErrorMessage(InfoLogLength);
-if(VertexShaderErrorMessage.size() == 0)
-printf("VertexShaderErrorMessage out of range \n");
-else
-{
-glGetShaderInfoLog(VertexShaderID, InfoLogLength, NULL, &VertexShaderErrorMessage[0]);
-fprintf(stdout, "%s\n", &VertexShaderErrorMessage[0]);
-}
-// Compile Fragment Shader
-printf("Compiling shader : %s\n", fragment_file_path);
-char const * FragmentSourcePointer = FragmentShaderCode.c_str();
-glShaderSource(FragmentShaderID, 1, &FragmentSourcePointer , NULL);
-glCompileShader(FragmentShaderID);
-
-// Check Fragment Shader
-glGetShaderiv(FragmentShaderID, GL_COMPILE_STATUS, &Result);
-glGetShaderiv(FragmentShaderID, GL_INFO_LOG_LENGTH, &InfoLogLength);
-vector<char> FragmentShaderErrorMessage(InfoLogLength);
-if(FragmentShaderErrorMessage.size() == 0)
-printf("FragmentShaderErrorMessage out of range \n");
-else
-{
-glGetShaderInfoLog(FragmentShaderID, InfoLogLength, NULL, &FragmentShaderErrorMessage[0]);
-fprintf(stdout, "%s\n", &FragmentShaderErrorMessage[0]);
-}
-
-// Link the program
-fprintf(stdout, "Linking program\n");
-GLuint ProgramID = glCreateProgram();
-glAttachShader(ProgramID, VertexShaderID);
-glAttachShader(ProgramID, FragmentShaderID);
-glLinkProgram(ProgramID);
-
-// Check the program
-glGetProgramiv(ProgramID, GL_LINK_STATUS, &Result);
-glGetProgramiv(ProgramID, GL_INFO_LOG_LENGTH, &InfoLogLength);
-vector<char> ProgramErrorMessage( max(InfoLogLength, int(1)) );
-if(ProgramErrorMessage.size() == 0)
-printf("ProgramErrorMessage out of range \n");
-else
-{
-glGetProgramInfoLog(ProgramID, InfoLogLength, NULL, &ProgramErrorMessage[0]);
-fprintf(stdout, "%s\n", &ProgramErrorMessage[0]);
-}
-
-//	glDeleteShader(VertexShaderID);
-//	glDeleteShader(FragmentShaderID);
-
-return ProgramID;
-}
-*/
-
-int OpenGL::frameCount = 0 ;
-int OpenGL::previousTime = 0;
-float OpenGL::angle = 0 ;

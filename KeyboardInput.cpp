@@ -1,4 +1,5 @@
-#include <GL\freeglut.h>
+#pragma once
+#include "OpenGL.h"
 #include "KeyboardInput.h"
 #include <iostream>
 
@@ -16,6 +17,12 @@ void KeyboardInput::GetStates()
 void KeyboardInput::keyPressed(unsigned char key, int x, int y)
 {
 	cout <<(char) key << endl;
+	if(key == 27)
+		{
+			OpenGL::ClosePrograme = true ;
+			return ;
+			glutExit();
+	}
 	//keyStates[key] = true;
 	//SetOfPressedKeys.insert(key);
 }

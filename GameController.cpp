@@ -4,19 +4,20 @@
 #include "ResourceManager.h"
 #include "MemoryManager.h"
 #include "GamePlayCaller.h"
+#include "KeyboardInput.h"
 #include <iostream>
 
 GameController* GameController::Controller = NULL;
 
-GameController::GameController(GraphicsManager* Graphicsmanager , MemoryManager* Memorymanager = new MemoryManager(10))
+GameController::GameController(GraphicsManager* Graphicsmanager , MemoryManager* Memorymanager = new MemoryManager(1))
 	{
+		Graphicsmanager->Start();
+		
 		Controller = this ;
 
 		this->Memorymanager = Memorymanager ;
 	
 		(this->Graphicsmanager) = (Graphicsmanager) ;
-		
-		Graphicsmanager->Start();
 		
 		Resourcemanager = new ResourceManager() ;
 
@@ -26,7 +27,8 @@ GameController::GameController(GraphicsManager* Graphicsmanager , MemoryManager*
 	}
 void GameController::GameUpdateLOOP()
 	{
-		
+		keyboard->GetStates();
+
 		int Exit = GamePlaymanager->GameUpdateLOOP() ;
 		
 		if(Exit == -1)
@@ -43,4 +45,9 @@ void GameController::GameEnd()
 		GamePlaymanager->GetGamePlay()->DeleteGameParts();
 	}
 
-  
+  GameController::~GameController()
+  {
+	  delete Memorymanager ;
+	  delete Resourcemanager ;
+	  delete GamePlaymanager ;
+  }

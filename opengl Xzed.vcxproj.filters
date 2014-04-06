@@ -23,9 +23,6 @@
     <Filter Include="Header Files\Resource Management">
       <UniqueIdentifier>{b2bdd55b-085c-49ab-a0a0-ded1381cca57}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Resource Management\Shaders">
-      <UniqueIdentifier>{26ba3e62-2430-48dd-aa38-2f1761de3305}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\InputDevice Management">
       <UniqueIdentifier>{69874beb-4cd6-4bf2-b1b3-9bdc273c506c}</UniqueIdentifier>
     </Filter>
@@ -35,9 +32,6 @@
     <Filter Include="ZGame">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files\Resource Management\ShaderClasses">
-      <UniqueIdentifier>{aa366496-d45f-4b1f-8820-119c9906837c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Components">
       <UniqueIdentifier>{036c23c7-c449-4e30-9f86-c6f6f8c6d8fb}</UniqueIdentifier>
@@ -57,6 +51,12 @@
     </Filter>
     <Filter Include="Header Files\Rendering Management\SceneManagement">
       <UniqueIdentifier>{9ebffa6c-b8a9-4b0b-9239-6b7fcf7e1376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shader Resources">
+      <UniqueIdentifier>{26ba3e62-2430-48dd-aa38-2f1761de3305}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shader Resources\ShaderClasses">
+      <UniqueIdentifier>{aa366496-d45f-4b1f-8820-119c9906837c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -126,9 +126,6 @@
     <ClCompile Include="GameCompnent.cpp">
       <Filter>Header Files\Components</Filter>
     </ClCompile>
-    <ClCompile Include="IShader.cpp">
-      <Filter>Header Files\Resource Management\ShaderClasses</Filter>
-    </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Header Files\UI Management</Filter>
     </ClCompile>
@@ -137,6 +134,12 @@
     </ClCompile>
     <ClCompile Include="RenderManager.cpp">
       <Filter>Header Files\Rendering Management</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGL.cpp">
+      <Filter>Header Files\Framework Management</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicShader.cpp">
+      <Filter>Header Files\Shader Resources\ShaderClasses</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -252,10 +255,10 @@
       <Filter>Header Files\Math</Filter>
     </ClInclude>
     <ClInclude Include="TransformationShader.h">
-      <Filter>Header Files\Resource Management\ShaderClasses</Filter>
+      <Filter>Header Files\Shader Resources\ShaderClasses</Filter>
     </ClInclude>
     <ClInclude Include="ShaderStructsHelper.h">
-      <Filter>Header Files\Resource Management\Shaders</Filter>
+      <Filter>Header Files\Shader Resources</Filter>
     </ClInclude>
     <ClInclude Include="KeyboardInput.h">
       <Filter>Header Files\InputDevice Management</Filter>
@@ -294,7 +297,7 @@
       <Filter>Header Files\Helpers\Behaviors</Filter>
     </ClInclude>
     <ClInclude Include="IShader.h">
-      <Filter>Header Files\Resource Management\ShaderClasses</Filter>
+      <Filter>Header Files\Shader Resources\ShaderClasses</Filter>
     </ClInclude>
     <ClInclude Include="IGameModule.h">
       <Filter>Header Files\Helpers</Filter>
@@ -323,27 +326,33 @@
     <ClInclude Include="RenderManager.h">
       <Filter>Header Files\Rendering Management</Filter>
     </ClInclude>
+    <ClInclude Include="BasicShader.h">
+      <Filter>Header Files\Shader Resources\ShaderClasses</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="SimpleFragmentShader.fragmentshader">
-      <Filter>Header Files\Resource Management\Shaders</Filter>
-    </None>
     <None Include="fragment.frag">
-      <Filter>Header Files\Resource Management\Shaders</Filter>
+      <Filter>Header Files\Shader Resources</Filter>
     </None>
     <None Include="vertex.vs">
-      <Filter>Header Files\Resource Management\Shaders</Filter>
+      <Filter>Header Files\Shader Resources</Filter>
     </None>
     <None Include="AmbLightShader.frag">
-      <Filter>Header Files\Resource Management\Shaders</Filter>
+      <Filter>Header Files\Shader Resources</Filter>
     </None>
     <None Include="TransofrmationShader.vs">
-      <Filter>Header Files\Resource Management\Shaders</Filter>
+      <Filter>Header Files\Shader Resources</Filter>
     </None>
     <None Include="meshmeshMaterial.mtl">
       <Filter>Resources</Filter>
     </None>
     <None Include="ClassDiagram.cd" />
+    <None Include="VSBasicShader.vs">
+      <Filter>Header Files\Shader Resources</Filter>
+    </None>
+    <None Include="SimpleFragmentShader.frag">
+      <Filter>Header Files\Shader Resources</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Object Include="meshmesh.obj">

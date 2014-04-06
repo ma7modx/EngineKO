@@ -20,6 +20,10 @@ public:
 	void Draw(int numOfShaderAttributes, int shaderAttributesIndices[]);
 	unsigned int GetNumOfVertices() { return numOfVertices; }
 	int GetVBOID() { return vbo; }
+	void Delete();
+
+	// does nothing but there's delete function to use instead
+	~GeometryIVBO();
 private:
 	unsigned int vbo;
 	unsigned int ibo;
@@ -27,7 +31,7 @@ private:
 	int vertexSize;
 	int numOfVertices;
 	int numOfIndices;
-	void* Offsets[];
+	void* Offsets[10]; // was offsets[];
 	void DetermineOffset(IVertex *v);
 
 };

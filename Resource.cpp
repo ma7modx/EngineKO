@@ -13,6 +13,6 @@ Resource::Resource(string name , Resource* Data)
 }
 Resource::~Resource()
 {
-	if(name != "")
-	GameController::GetGameController()->Resourcemanager->Delete(name) ;
+	//if(name != "")
+	//GameController::GetGameController()->Resourcemanager->Delete(name) ;
 }

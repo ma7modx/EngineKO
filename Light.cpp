@@ -24,6 +24,6 @@ Shader* Light::GetShader()
 }
 Light::~Light()
 {
-	delete lightSource;
-	delete lightShader; 
+	//delete lightSource;
+	//delete lightShader; 
 }

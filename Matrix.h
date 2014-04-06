@@ -29,7 +29,7 @@ public:
 
 	static Matrix Translation(Vector3 translation);
 
-	static Matrix Rotation( Vector3 eulerAngles);
+	static Matrix Rotation( Vector3 AnglesInDegree);
 
 	static Matrix Scale( Vector3 scale);
 	

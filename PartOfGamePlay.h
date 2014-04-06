@@ -13,6 +13,7 @@ public :
 //	virtual void Unload() = 0 ;
 	virtual void Draw()=0 ;// no need later .. render manager
 	virtual bool Finished()=0 ;
+	virtual void Delete()=0;
 	bool Initialized;
 	MemoryManager* GetMemory(){return Memory ;}
 private :

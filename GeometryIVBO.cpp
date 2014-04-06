@@ -1,6 +1,7 @@
+#pragma once
 #include "GeometryIVBO.h"
 #include "GameController.h"
-
+#include "GraphicsManager.h"
 
 GeometryIVBO::GeometryIVBO(int numOfVerices , IVertex vertex[] , int numOfIndices , int Indices[])//:GameObject()// this
 {
@@ -13,7 +14,7 @@ GeometryIVBO::GeometryIVBO(int numOfVerices , IVertex vertex[] , int numOfIndice
 	DetermineOffset(&vertex[0]) ;
 	vertexSize =vertex[0].GetSize() ;
 	Mode = vertex[0].GetData();	
-
+	cout <<Indices[2];
 	GameController::GetGameController()->Graphicsmanager->FillBuffer(ibo, Indices, numOfIndices* sizeof (int), GPUDrawMode::STATIC, BufferType::ELEMENT_BUFFER);
 	GameController::GetGameController()->Graphicsmanager->FillBuffer(vbo, vertex, numOfVerices*vertex[0].GetSize(), GPUDrawMode::STATIC, BufferType::ARRAY_BUFFER);
 }
@@ -50,4 +51,15 @@ void GeometryIVBO::Draw(int numOfShaderAttributes , int shaderAttributesIndices[
 void GeometryIVBO::Draw(int numOfShaderAttributes , int shaderAttributesIndices[] )
 {
 	Draw(numOfShaderAttributes ,shaderAttributesIndices , Shapes::TRIANGLE);
+}
+void GeometryIVBO::Delete()
+{
+GameController::GetGameController()->Graphicsmanager->DeleteBuffer(1 , &ibo);
+GameController::GetGameController()->Graphicsmanager->DeleteBuffer(1 , &vbo);
+}
+
+// does nothing but there's delete function
+GeometryIVBO::~GeometryIVBO()
+{
+
 }

@@ -19,7 +19,7 @@ public :
 	virtual void Draw() = 0 ;
 	virtual void Debug() =0 ;
 };
-
+// auto deletes the vertices
 class VShape : public Shape  
 {
 public :
@@ -28,9 +28,11 @@ public :
 	VShape(int numOfVertices) {  this->numOfVertices = numOfVertices ; vertices.resize(numOfVertices) ;} 
 	void Transform(Matrix Transformation);
 	void Debug();
-	~VShape(){
-		for(int i = 0 ; i < vertices.size() ; ++i)
-		delete  vertices[i] ; 
+	// auto deletes vertices
+	~VShape() 
+	{ 
+		for(int i = 0 ; i < (int)vertices.size() ; ++i)
+			delete vertices[i] ; 
 		vertices.clear();
 	} 
 	
@@ -49,13 +51,18 @@ public :
 	}
 	
 	void Draw();
+
+	// auto deletes the vertices .. in its parent
+	~Line() 
+	{}
 };
+
 
 class Triangle:public VShape
 {
 public:
 	
-	Triangle():VShape(0) {}
+	Triangle():VShape(3) {}
 
 	Triangle(IVertex *V1, IVertex *V2, IVertex *V3):VShape(3)
 	{
@@ -65,10 +72,14 @@ public:
 	}
 	
 	void Draw();
+	// auto deletes the vertices .. in its parent
+	~Triangle()
+	{}
+	
 };
 
-
-class GeometryIMT : public Shape
+// auto deletes the triangles
+class GeometryIMT : public Shape 
 {
 public :
 	int NumOfTriangles ;
@@ -77,10 +88,12 @@ public :
 	void DrawRange(int start , int end) ;
 	void Debug() ;
 	void DebugRange(int start , int end) ;
+	// auto deletes the triangles
 	~GeometryIMT() 
 	{ 
-		for(int i = 0 ; i < Triangles.size() ; ++i)
+		for(int i = 0 ; i < (int)Triangles.size() ; ++i)
 			delete Triangles[i]  ; 
+		Triangles.clear();
 	} 
 protected :
 	vector<Triangle*> Triangles ;
@@ -90,10 +103,11 @@ private :
 	void DrawSingleTriagle(int Index) ;
 };
 
+
 class Quad : public VShape
 {
 public :
-	Quad():VShape(0){}
+	Quad():VShape(4){}
 	Quad(IVertex*vertices [4]) : VShape(4)
 	{
 		this->vertices[0] = vertices[0] ;
@@ -111,4 +125,8 @@ this->vertices[3] = DR ;
 	}
 	void Transform(Matrix Transformation){}
 	void Draw();
+
+	// auto deletes the triangles .. in its parent
+	~Quad() 
+	{}
 };

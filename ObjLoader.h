@@ -27,13 +27,13 @@ public:
 	static string ReadMaterialFileName(vector<string*> coords )//, vector<string*> MaterialNames)
 	{
 		char dum[200];
-		for (int i = 0; i < coords.size(); ++i)
+		for (int i = 0; i < (int)coords.size(); ++i)
 		{
 			if ( (*coords[i])[0] == '#')
 				continue;
 			else if ((*coords[i]).substr(0,6) == "mtllib") // debug this line
 			{
-				sscanf(coords[i]->c_str(), "mtllib %s", dum);
+				sscanf_s(coords[i]->c_str(), "mtllib %s", dum);
 				//MaterialNames.push_back(new string(dum));
 				
 				/// assume that there's always one material file ///
@@ -61,7 +61,7 @@ public:
 	}
 	static int ReadVertices( vector<string*> coords , vector<Vector3*>& vertex )
 	{
-		for (int i = 0; i < coords.size(); ++i)
+		for (int i = 0; i < (int)coords.size(); ++i)
 		{
 			if ( (*coords[i])[0] == '#')
 				continue;
@@ -78,7 +78,7 @@ public:
 	}
 	static int ReadNormals( vector<string*> coords , vector<Vector3*>& normals )
 	{
-		for (int i = 0; i < coords.size(); ++i)
+		for (int i = 0; i < (int)coords.size(); ++i)
 		{
 			if ( (*coords[i])[0] == '#')
 				continue;
@@ -97,7 +97,7 @@ public:
 	static int ReadFaces(vector<string*> coords , vector<Face*>& faces)
 	{
 		int currentMaterial = 0 ;
-		for (int i = 0; i < coords.size(); ++i)
+		for (int i = 0; i < (int)coords.size(); ++i)
 		{
 			if ( (*coords[i])[0] == '#')
 				continue;
@@ -143,13 +143,13 @@ public:
 	}
 	static void Delete(vector<string*>& coords , vector<Vector3*>& vertex, vector<Vector3*>& normals , vector<Face*>& faces)
 	{
-		for (int i = 0; i < coords.size(); ++i)
+		for (int i = 0; i < (int)coords.size(); ++i)
 			delete coords[i];
-		for (int i = 0; i < vertex.size(); ++i)
+		for (int i = 0; i < (int)vertex.size(); ++i)
 			delete vertex[i];
-		for (int i = 0; i < normals.size(); ++i)
+		for (int i = 0; i < (int)normals.size(); ++i)
 			delete normals[i];
-		for (int i = 0; i < faces.size(); ++i)
+		for (int i = 0; i < (int)faces.size(); ++i)
 			delete faces[i];
 		coords.clear();
 		vertex.clear();
@@ -167,7 +167,7 @@ public:
 		{
 			if(coords[i]->find("//") != string::npos)
 			{
-				sscanf(coords[i]->c_str(), "f %d//%d %d//%d %d//%d %d//%d",
+				sscanf_s(coords[i]->c_str(), "f %d//%d %d//%d %d//%d %d//%d",
 					&v[0],  &facenum, &v[1], &facenum, &v[2], &facenum, &v[3], &facenum);
 
 				faces.push_back(new Face(facenum, v[0], v[1], v[2], v[3]));
@@ -175,14 +175,14 @@ public:
 			else if(coords[i]->find("/") != string::npos)
 			{
 				int T[4]; 
-				sscanf(coords[i]->c_str(), "f %d/%d/%d %d/%d/%d %d/%d/%d %d/%d/%d",
+				sscanf_s(coords[i]->c_str(), "f %d/%d/%d %d/%d/%d %d/%d/%d %d/%d/%d",
 					&v[0],&T[0], &facenum, &v[1],&T[1] , &facenum, &v[2],&T[2], &facenum, &v[3],&T[3], &facenum);
 
 				faces.push_back(new MaterialFace(facenum, v[0], v[1], v[2], v[3],T[0],T[1],T[2],T[3],CurrentMaterial));
 			}
 			else
 			{
-				sscanf(coords[i]->c_str(), "f %d %d %d %d",
+				sscanf_s(coords[i]->c_str(), "f %d %d %d %d",
 					&v[0], &v[1], &v[2] , &v[3]);
 				faces.push_back(new Face(-1, v[0], v[1], v[2], v[3]));
 			}
@@ -192,23 +192,23 @@ public:
 		{
 			if(coords[i]->find("//") != string::npos)
 			{
-				sscanf(coords[i]->c_str(), "f %d//%d %d//%d %d//%d",
+				sscanf_s(coords[i]->c_str(), "f %d//%d %d//%d %d//%d",
 					&v[0], &facenum, &v[1], &facenum, &v[2], &facenum);
 				faces.push_back(new Face(facenum, v[0], v[1], v[2]));
 			}
 			else if(coords[i]->find("/") != string::npos)
 			{
 				int T[3]; 
-				sscanf(coords[i]->c_str(), "f %d/%d/%d %d/%d/%d %d/%d/%d",
+				sscanf_s(coords[i]->c_str(), "f %d/%d/%d %d/%d/%d %d/%d/%d",
 					&v[0],&T[0], &facenum, &v[1],&T[1] , &facenum, &v[2],&T[2], &facenum);
 
 				faces.push_back(new MaterialFace(facenum, v[0], v[1], v[2],T[0],T[1],T[2],CurrentMaterial));
 			}
 			else
 			{
-				sscanf(coords[i]->c_str(), "f %d %d %d",
+				sscanf_s(coords[i]->c_str(), "f %d %d %d",
 					&v[0], &v[1], &v[2] );
-				faces.push_back(new Face(-1, v[0], v[1], v[2]));
+				faces.push_back(new	Face(-1, v[0], v[1], v[2]));
 			}
 		}
 	}
@@ -218,7 +218,7 @@ private :
 	int ID;
 	static int ReadAndSaveValues(vector<string*>& coords , vector<Vector3*>& vertex, vector<Vector3*>& normals , vector<Face*>& faces)
 	{
-		for (int i = 0; i < coords.size(); ++i)
+		for (int i = 0; i < (int)coords.size(); ++i)
 		{
 			if ( (*coords[i])[0] == '#')
 				continue;
@@ -246,7 +246,7 @@ private :
 	{
 		int ModelID = glGenLists(1);
 		glNewList(ModelID, GL_COMPILE);//--
-		for (int i = 0; i < faces.size(); ++i)
+		for (int i = 0; i < (int)faces.size(); ++i)
 		{
 			if (faces[i]->Quad)
 			{

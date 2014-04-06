@@ -6,7 +6,7 @@
 #include "Vector3.h"
 #include "Material.h"
 
-Mesh::Mesh(string Name , const char * Filename):Resource(Name , this)
+Mesh::Mesh(string Name , const char * Filename)//:Resource(Name , this)
 {
 	//Geometry = new GeometryList();
 	vector<string*> coords; // text file lines
@@ -23,11 +23,14 @@ Mesh::Mesh(string Name , const char * Filename):Resource(Name , this)
 	if(MaterialName.size() != 0)
 		materials = Material::LoadMaterial(MaterialName) ;
 
-	//Geometry->BeginList();
 	MakeDrawList( vertex,  normals , faces);
-	//Geometry->EndList();
-
+	
 	ObjLoader::Delete(coords ,vertex,  normals ,  faces);
+	
+	// delete material
+	for(int i = 0 ; i < (int)materials.size() ; ++i)
+		delete materials[i];
+	materials.clear();
 }
 int ID = -1 ;
 void Mesh::Draw()
@@ -39,13 +42,14 @@ void Mesh::Draw()
 void Mesh::MakeDrawList(vector<Vector3*>& vertex, vector<Vector3*>& normals , vector<Face*>& faces)
 {
 
-	Quad *quad ;
-	Triangle *triangle ;
+	Quad *quad = new Quad();
+	Triangle *triangle = new Triangle();
 	VertexNormal *v[4] = {new VertexNormal(Vector3(0),Vector3(0)) ,new VertexNormal(Vector3(0),Vector3(0)),new VertexNormal(Vector3(0),Vector3(0)),new VertexNormal(Vector3(0),Vector3(0))} ;
+	
 	ID = glGenLists(1);
 	glNewList(ID, GL_COMPILE);//--
 
-	for (int i = 0; i < faces.size(); ++i)
+	for (int i = 0; i < (int)faces.size(); ++i)
 	{
 		if (faces[i]->Quad)
 		{
@@ -65,8 +69,12 @@ void Mesh::MakeDrawList(vector<Vector3*>& vertex, vector<Vector3*>& normals , ve
 			Vector3 ss = v[0]->Position ;
 			ss = v[1]->Position ;
 			ss = v[2]->Position ;
-			//quad = new Quad(v[0] , v[1] , v[2] ,v[3] );
-			//Geometry->Add( quad );
+			
+			quad->vertices[0] = v[0] ;
+			quad->vertices[1] = v[1] ;
+			quad->vertices[2] = v[2] ;
+			quad->vertices[3] = v[3] ;
+			Geometry->Add( quad );
 		}
 		else
 		{
@@ -78,12 +86,26 @@ void Mesh::MakeDrawList(vector<Vector3*>& vertex, vector<Vector3*>& normals , ve
 			for (int j = 0; j < 3; ++j)// every face has 3 vertices 
 				v[j]->Position = *vertex[faces[i]->VerticesID[j] - 1];
 
-			triangle = new Triangle(v[0] , v[1] , v[2]);
+			triangle->vertices[0] = v[0] ;
+			triangle->vertices[1] = v[1] ;
+			triangle->vertices[2] = v[2] ;
 			Geometry->Add( triangle );
 		}
 	}
 
 	glEndList();
 	
+	delete quad ;
+	delete triangle ;
+	
 }
 
+void Mesh::Delete()
+{
+	glDeleteLists(ID , 1);
+}
+
+Mesh::~Mesh()
+{
+
+}
