@@ -346,13 +346,16 @@
     <None Include="meshmeshMaterial.mtl">
       <Filter>Resources</Filter>
     </None>
-    <None Include="ClassDiagram.cd" />
     <None Include="VSBasicShader.vs">
       <Filter>Header Files\Shader Resources</Filter>
     </None>
     <None Include="SimpleFragmentShader.frag">
       <Filter>Header Files\Shader Resources</Filter>
     </None>
+    <None Include="LightFragShader.frag">
+      <Filter>Header Files\Shader Resources</Filter>
+    </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Object Include="meshmesh.obj">

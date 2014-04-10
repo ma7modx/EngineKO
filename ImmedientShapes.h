@@ -42,7 +42,7 @@ public :
 class Line : public VShape 
 {
 public :
-	Line() : VShape(0) {}
+	Line() : VShape(2) {}
 
 	Line(IVertex *V1, IVertex *V2):VShape(2)
 	{

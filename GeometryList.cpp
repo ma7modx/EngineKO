@@ -19,3 +19,7 @@
 	{
 		GameController::GetGameController()->Graphicsmanager->ListDraw(ID); 
 	}
+	GeometryList::~GeometryList()
+	{
+		GameController::GetGameController()->Graphicsmanager->DeleteDrawList(ID);
+	}

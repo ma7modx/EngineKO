@@ -3,13 +3,17 @@
 uniform mat4 transformation = mat4(1);
 uniform mat4 viewMatrix = mat4(1); // bug in perspective FOv matrix
 uniform mat4 scale = mat4(1);
+uniform vec3 LightSource ;
 
-varying vec3 color2; 
-varying vec2 texCoord;
+varying vec3 outColor; 
+varying vec2 outTexCoord;
+varying vec3 outLightSource ;
+varying vec3 outNormal ;
 
 attribute vec3 inVertex;
 attribute vec3 inColor ;// values in vertex 
 attribute vec2 inTexCoord;
+attribute vec3 inNormal;
 
 void main()
 {
@@ -20,6 +24,9 @@ void main()
 		LviewMatrix = viewMatrix ;
 		
         gl_Position= LviewMatrix * transformation * vertex;
-        color2=inColor;
-		texCoord = inTexCoord ;
+        outColor=inColor;
+		outTexCoord = inTexCoord ;
+		outNormal = inNormal ;
+		outLightSource = LightSource ;
+		
 }

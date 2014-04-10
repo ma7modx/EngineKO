@@ -139,14 +139,14 @@ public:
 	
 };
 
-class VertexTextureNormal : public VertexTexture
+// has been edited from public VertexTexture to this in 4-11-2014
+class VertexTextureNormal : public VertexNormal// : public VertexTexture
 {
 public :
-	Vector3 Normal;
 	Vector2 TexCoord;
 public:
 	VertexTextureNormal() {}
-	VertexTextureNormal(Vector3 Position, Vector2 TexCoord, Vector3 Normal) : VertexTexture(Position , TexCoord)
+	VertexTextureNormal(Vector3 Position, Vector2 TexCoord, Vector3 Normal) : VertexNormal(Position , Normal)
 	{
 		this->Normal = Normal;
 		this->TexCoord = TexCoord;
@@ -154,7 +154,7 @@ public:
 
 	void SetVertex(Vector3 Position, Vector2 TexCoord, Vector3 Normal);
 	void SetVertex();
-	short GetSize() { return sizeof(Vector3)+sizeof(Vector2)+sizeof(Vector3)+sizeof(float) ; } 
+	short GetSize() {return sizeof(Vector3)+sizeof(Vector2)+sizeof(Vector3)+sizeof(float) ; } 
 	short GetOffset(int index) 
 	{ 
 		if(index == 0)
@@ -164,7 +164,7 @@ public:
 		if(index == 2)
 			return 4+sizeof(Vector3) ;
 		else
-			return 4+sizeof(Vector3)+ sizeof(Vector2) ;
+			return 4+sizeof(Vector3)+ sizeof(Vector3) ;
 	}
 	VertexData GetData() ;
 	

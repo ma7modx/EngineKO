@@ -5,7 +5,7 @@ enum BasicShaderUniforms
 {
 	TRANSFORMATION = 0 , SCALE = 1, VIEW = 2  
 };
-class BasicShader : public IShader
+class BasicShader : public IShader // Singleton Later
 {
 public: 
 	BasicShader();

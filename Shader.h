@@ -17,7 +17,7 @@ public :
 	void SetUniform(const char* uniform , Vector2);
 	void SetUniform(const char* uniform , Vector3);
 	void SetUniform(const char* uniform , Matrix);
-	void Delete();
+	//void Delete();
 	// does nothing but there's delete function
 	~Shader();
 private :

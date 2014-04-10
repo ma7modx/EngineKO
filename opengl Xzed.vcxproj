@@ -183,6 +183,7 @@
     <None Include="AmbLightShader.frag" />
     <None Include="ClassDiagram.cd" />
     <None Include="fragment.frag" />
+    <None Include="LightFragShader.frag" />
     <None Include="meshmeshMaterial.mtl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>

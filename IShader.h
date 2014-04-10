@@ -19,7 +19,7 @@ public :
 	}
 	~IShader()
 	{
-		Delete();
+		//Delete();
 		delete attributes ;
 	}
 protected:

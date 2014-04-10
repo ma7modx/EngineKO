@@ -16,11 +16,12 @@ public:
 	void Draw(){ Draw(Shapes::TRIANGLE); }
 	void Debug(){ Draw(Shapes::LINE); }
 	void Draw(Shapes);
+	void Draw(int shaderAttributesIndices[], Shapes);
 	void Draw(int numOfShaderAttributes, int shaderAttributesIndices[], Shapes);
 	void Draw(int numOfShaderAttributes, int shaderAttributesIndices[]);
 	unsigned int GetNumOfVertices() { return numOfVertices; }
 	int GetVBOID() { return vbo; }
-	void Delete();
+	//void Delete();
 
 	// does nothing but there's delete function to use instead
 	~GeometryIVBO();

@@ -37,6 +37,7 @@ public:
 
 	virtual void BeginDrawList(int& ID) = 0;
 	virtual void EndDrawList() = 0;
+	virtual void DeleteDrawList(int ID) = 0;
 
 	virtual unsigned int LoadShader(const char *vertex_file_path, const char *fragment_file_path , unsigned int& out_VS , unsigned int& out_FS )= 0;
 	virtual void ActiveShader(unsigned int ID) = 0;

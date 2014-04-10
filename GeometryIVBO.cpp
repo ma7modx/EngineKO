@@ -20,6 +20,7 @@ GeometryIVBO::GeometryIVBO(int numOfVerices , IVertex vertex[] , int numOfIndice
 }
 void GeometryIVBO::DetermineOffset(IVertex* v)
 {
+
 	for(int i = 0 ; i<10 ; ++i)
 	{
 		if(v->GetOffset(i) == -1)
@@ -52,14 +53,20 @@ void GeometryIVBO::Draw(int numOfShaderAttributes , int shaderAttributesIndices[
 {
 	Draw(numOfShaderAttributes ,shaderAttributesIndices , Shapes::TRIANGLE);
 }
+void GeometryIVBO::Draw(int shaderAttributesIndices[], Shapes shape)
+{
+	Draw(4 , shaderAttributesIndices , shape);
+}
+/*
 void GeometryIVBO::Delete()
 {
 GameController::GetGameController()->Graphicsmanager->DeleteBuffer(1 , &ibo);
 GameController::GetGameController()->Graphicsmanager->DeleteBuffer(1 , &vbo);
 }
-
+*/
 // does nothing but there's delete function
 GeometryIVBO::~GeometryIVBO()
 {
-
+	GameController::GetGameController()->Graphicsmanager->DeleteBuffer(1 , &ibo);
+	GameController::GetGameController()->Graphicsmanager->DeleteBuffer(1 , &vbo);
 }

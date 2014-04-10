@@ -39,7 +39,6 @@ public :
 	Texture* tex;
 	BasicShader* basicShader;
 
-	unsigned int img;
 	float r ;
 	void Initialize()
 	{
@@ -57,15 +56,15 @@ public :
 		int ind [] = {0,1,2} ;
 
 		GPU = new GeometryIVBO(3 , offset , 3 , ind) ;
-		//		 tex = new Texture(1) ;
-
+		
 		sshader = new Shader("mshader" , "vertex.vs","fragment.frag") ;
-		tranShader = new Shader ("masd" , "TransofrmationShader.vs" , "SimpleFragmentShader.frag") ;
+		tranShader = new Shader ("masd" , "TransofrmationShader.vs" , "LightFragShader.frag") ;
 
 		float Z_ = 0 ;
 		//VertexColor vc [4]={VertexColor( Vector3(-0.2,0.2,-Z_) , MColor(10,2,4)) ,VertexColor (Vector3(-0.2,-0.2,-Z_), MColor(10,200,4)) ,VertexColor(Vector3(0.2,-0.2,-Z_), MColor(10,2,200)) , VertexColor(Vector3(0.2,0.2,-Z_), MColor(10,2,200))};  
-		VertexTexture vc [4]={VertexTexture( Vector3(-0.2,0.2,-Z_) , Vector2(0,0)) ,VertexTexture (Vector3(-0.2,-0.2,-Z_), Vector2(0,1)) ,VertexTexture(Vector3(0.2,-0.2,-Z_), Vector2(1,1)) , VertexTexture(Vector3(0.2,0.2,-Z_), Vector2(1,0))};  
-
+		//VertexTexture vc [4]={VertexTexture( Vector3(-0.2,0.2,-Z_) , Vector2(0,0)) ,VertexTexture (Vector3(-0.2,-0.2,-Z_), Vector2(0,1)) ,VertexTexture(Vector3(0.2,-0.2,-Z_), Vector2(1,1)) , VertexTexture(Vector3(0.2,0.2,-Z_), Vector2(1,0))};  
+		VertexTextureNormal vc [4]={VertexTextureNormal( Vector3(-0.2,0.2,-Z_) , Vector2(0,0) , Vector3(0,0,-1)) ,VertexTextureNormal (Vector3(-0.2,-0.2,-Z_), Vector2(0,1), Vector3(-1,0,0)) ,VertexTextureNormal(Vector3(0.2,-0.2,-Z_), Vector2(1,1), Vector3(0,0,1)) , VertexTextureNormal(Vector3(0.2,0.2,-Z_), Vector2(1,0), Vector3(0,0,1))};  
+		cout << "VertexSize !! : " << sizeof VertexTextureNormal <<endl; 
 		int ass [] = {0,1 , 2 ,	3 } ;
 		cout << "Geometry IVBO ...\n" ;
 		shaderGPU= new GeometryIVBO(4 , vc , 4 , ass);
@@ -94,16 +93,12 @@ public :
 	}
 	void Draw()
 	{
-		DebugException("begin Drawing");
 		// pass the camera matrix to the render manager
 		
-		DebugException("Triangle1");
 		T->Debug();
 		
-		DebugException("Triangle2");
 		GPU->Draw();
 		
-		DebugException("mesh");
 		glPushMatrix();
 		glColor3f(0.3f,0.0f,0.0f);
 		glLoadIdentity();
@@ -113,8 +108,8 @@ public :
 		mesh->Draw();
 		glPopMatrix();
 		
-		DebugException("texture");
 		r+= 0.04;
+		
 		
 		tex->Use();
 		
@@ -122,58 +117,29 @@ public :
 		basicShader->SetUniforms(BasicShaderUniforms::TRANSFORMATION , Matrix::Rotation(Vector3(r , 20 , 0))  * Matrix::Translation(Vector3(0,2,2)));
 
 		basicShader->Begin(); 
-		shaderGPU->Draw(4, basicShader->GetAttributes(), Shapes::QUAD); 
+		shaderGPU->Draw(basicShader->GetAttributes(), Shapes::QUAD); 
 		basicShader->End();
 		
 		
 		DebugException("finished drawing");
+	
 		fsttime = 0 ;
 	}
 	bool Finished() 
 	{
-	
 		return 0 ;
 	}
 	void Delete()
 	{
-		mesh->Delete();
 		delete mesh;
-		
 		delete att ;
-		
 		delete T ;
-		
-		tranShader->Delete(); 
 		delete tranShader;
-
-		GPU->Delete();
 		delete GPU;
-
-		sshader->Delete();
 		delete sshader;
-
-		shaderGPU->Delete();
 		delete shaderGPU;
-		
 		delete tex ;
-
 		delete basicShader;
 	}
-	/*
-	unsigned int loadTexture(const char* name)
-	{
-	SDL_Surface* img=IMG_Load(name);
-	SDL_PixelFormat form={NULL,32,4,0,0,0,0,8,8,8,8,0xff000000,0x00ff0000,0x0000ff00,0x000000ff,0,255};
-	SDL_Surface* img2=SDL_ConvertSurface(img,&form,SDL_SWSURFACE);
-	unsigned int texture;
-	glGenTextures(1,&texture);
-	glBindTexture(GL_TEXTURE_2D,texture);
-	glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,img2->w,img2->h,0,GL_RGBA, GL_UNSIGNED_INT_8_8_8_8,img2->pixels);
-	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
-	SDL_FreeSurface(img);
-	SDL_FreeSurface(img2);
-	return texture;
-	}
-	*/
+	
 };

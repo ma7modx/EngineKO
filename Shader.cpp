@@ -41,11 +41,13 @@ void Shader::SetUniform(const char* uniform , Matrix f)
 {
 	GameController::GetGameController()->Graphicsmanager->ShaderUniformMat(GetUniform(uniform) , f) ;
 }
+/*
 void Shader::Delete()
 {
 	GameController::GetGameController()->Graphicsmanager->DeleteShader(programID , VS , FS) ;
 }
+*/
 Shader::~Shader()
 {
-	// Delete();
+	GameController::GetGameController()->Graphicsmanager->DeleteShader(programID , VS , FS) ;
 }

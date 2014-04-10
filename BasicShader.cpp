@@ -2,16 +2,23 @@
 #include "Matrix.h"
 #include <GL\glew.h>
 #include <GL\GL.h>
+#include "Vector3.h"
 
-BasicShader::BasicShader() : IShader("BasicShader" , "TransofrmationShader.vs" , "SimpleFragmentShader.frag")
+BasicShader::BasicShader() : IShader("BasicShader" , "TransofrmationShader.vs" , "LightFragShader.frag")
 {
 	transformation = scale = view = Matrix::Identity() ;
-	cout << "MAtrices : ";
-	cout << transformation (0,0) << " " ;
-	cout << transformation (0,1) <<endl ;
 }
 void BasicShader::SetUniforms(BasicShaderUniforms uniform , Matrix matrix)
 {
+	float w = 1 , h = 1 ;
+	glBegin(GL_QUADS);
+	{
+		glVertex3f(3+w/2,3+h/2,3);
+		glVertex3f(3-w/2,3+h/2,3);
+		glVertex3f(3-w/2,3-h/2,3);
+		glVertex3f(3+w/2,3-h/2,3);
+	};
+	glEnd();
 	if(uniform == 0)
 		transformation= matrix ;
 	else if(uniform ==1)
@@ -25,17 +32,17 @@ void BasicShader::Begin()
 {
 	this->Active();
 	this->SetUniform("scale" ,scale);
-	//scale.Show();
 	this->SetUniform("viewMatrix" , view );
-	//view.Show();
 	this->SetUniform("transformation" ,transformation ) ; // update
-	//transformation.Show();
 	this->SetUniform("tex" , GL_LINEAR) ;
+	
+	this->SetUniform("LightSource" ,  Vector3(3,3,3)) ;
 
 	attributes->AddAttribute(this->GetAttribute("inVertex"), VertexData::VERTEX) ;
 	attributes->AddAttribute(this->GetAttribute("inColor"),  VertexData::COLOR);
 	attributes->AddAttribute(this->GetAttribute("inTexCoord"),  VertexData::TEXTURE);
-
+	attributes->AddAttribute(this->GetAttribute("inNormal"),  VertexData::NORMAL);
+	
 }
 void BasicShader::End()
 {

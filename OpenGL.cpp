@@ -13,52 +13,44 @@ using namespace std;
 
 void OpenGL::UpdateCall()
 {
-	updateFinished = false;
-	if(!ClosePrograme)
-	{
+//	updateFinished = false;
+//	if(!ClosePrograme)
+//	{
 		calculateFPS();
 
 		GameController::GetGameController()->GameUpdateLOOP();
 		// calculate elapsed time
-	}
-	updateFinished = true ;
+//	}
+//	updateFinished = true ;
 }
 void OpenGL::DrawCALL()
 {
-	drawFinished = false ;
-	if(!ClosePrograme)
-	{
+	//drawFinished = false ;
+	//if(!ClosePrograme)
+	//{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		GameController::GetGameController()->GameDrawLOOP();
 	
-		if(!ClosePrograme)
+//		if(!ClosePrograme)
 			glutSwapBuffers();
 		//draw finished && ..
-		if(updateFinished&& !ClosePrograme)
+//		if(updateFinished&& !ClosePrograme)
 			glutPostRedisplay();
 		
-	}
-	drawFinished = true ;
+//	}
+//	drawFinished = true ;
 }
 void OpenGL::Close()
 {
-	ClosePrograme = true ;
-	if(drawFinished && updateFinished)
-	{
+//	ClosePrograme = true ;
+//	if(drawFinished && updateFinished)
+//	{
 
 	glutLeaveMainLoop();
-	
-	/*
-	while (true)
-	{
-		if(drawFinished && updateFinished)
-			break;
-	}
-	*/
 
 	GameController::GetGameController()->GameEnd();
-	}	
+//	}	
 }
 void OpenGL::Timer(int iUnused)
 {
@@ -110,4 +102,8 @@ void OpenGL::DeleteTexture(int size , unsigned int* ptr)
 void OpenGL::DeleteTexture(unsigned int* IDptr)
 {
 	DeleteTexture(1 ,IDptr);
+}
+void OpenGL::DeleteDrawList(int ID)
+{
+	glDeleteLists(ID , 1);
 }

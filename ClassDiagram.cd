@@ -1,787 +1,815 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="MemorySector" Collapsed="true">
-    <Position X="25" Y="2.5" Width="1.5" />
+    <Position X="30" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAAAAAAEAAAAAAIAAAAAAAAAEAAAAAAAAQAAAAAA=</HashCode>
       <FileName>MemoryManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MemoryManager" Collapsed="true">
-    <Position X="32" Y="1.5" Width="1.5" />
+    <Position X="28.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAEECAgAAAAAAAEAgAAEQAAEAACgAAAAAAAAA=</HashCode>
       <FileName>MemoryManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameController" Collapsed="true">
-    <Position X="28.5" Y="0.5" Width="1.5" />
+    <Position X="26.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAARAAAAABABAAEAAAAAAIAAAIAgAABAAAAAA=</HashCode>
+      <HashCode>AAAAQAAIARAAAAABABAAEAAEAAAIAAAIAgAABAAAAAA=</HashCode>
       <FileName>GameController.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameObject" Collapsed="true">
-    <Position X="0.75" Y="11.75" Width="1.5" />
+    <Position X="13.25" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAEAAEAAAAAKAAAAwAAQAAAAACAAAAAIAAAA=</HashCode>
       <FileName>GameObject.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Matrix" Collapsed="true">
+    <Position X="24.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAgIACEAIAAAAAAAAkAAAAAEAhQAAAAAo=</HashCode>
+      <FileName>Matrix.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Quaternion" Collapsed="true">
-    <Position X="13.5" Y="15.75" Width="1.5" />
+    <Position X="11.5" Y="16.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAAAAAAEAAAAABAAAAAAAAAAAAgAAAQAAA=</HashCode>
       <FileName>Quaternion.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Vector2" Collapsed="true">
-    <Position X="25" Y="4.5" Width="1.5" />
+    <Position X="30" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAIAAAAAAABBEAAAAAAAAAQAAAAAAAAAAAgAAAAYAA=</HashCode>
       <FileName>Vector2.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Vector3" Collapsed="true">
-    <Position X="26.75" Y="4.5" Width="1.5" />
+    <Position X="31.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAEAAMAAAAQAAAAAAAAACAMAAAACAACgAAEAYQE=</HashCode>
       <FileName>Vector3.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Vector4" Collapsed="true">
-    <Position X="13.5" Y="14.5" Width="1.5" />
+    <Position X="11.5" Y="15.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAEAAIAAAAAAAAAIYAE=</HashCode>
       <FileName>Vector4.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VertexData" Collapsed="true">
-    <Position X="30.25" Y="4.5" Width="1.5" />
+    <Position X="24.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAKAAAAAAAAAAAAAAAAAAAACAAAAAAAEAwAA=</HashCode>
       <FileName>GraphicsHelpers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VertexAttributes" Collapsed="true">
-    <Position X="28.5" Y="4.5" Width="1.5" />
+    <Position X="23" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAAAAAAAAAAAAAgBAAAAAAAABAAAAAAAA=</HashCode>
       <FileName>GraphicsHelpers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GraphicsManager" Collapsed="true">
-    <Position X="13.5" Y="11.5" Width="1.5" />
+    <Position X="8.5" Y="15.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QIAFCIISACAIBiAAABIAYAAAAAAAKCKogCigBgDAgAI=</HashCode>
+      <HashCode>QIAFCIISACAIDiAAABIAYAAAAAAAKCKogCigBgDAgAY=</HashCode>
       <FileName>GraphicsManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OpenGL" Collapsed="true">
-    <Position X="13.5" Y="12.75" Width="1.5" />
+    <Position X="8.5" Y="16.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QICliIKSACAIJiAAAENAYAAAAEAAKAKohCigAoDEoEI=</HashCode>
+      <HashCode>QICliIKSACAILmAAAFNAYAAAAEAAKIKoxiigAoDEoEY=</HashCode>
       <FileName>OpenGL.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Window" Collapsed="true">
-    <Position X="32" Y="4.5" Width="1.5" />
+    <Position X="26.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAAAAAAhAAAAEAEAgAAAAAAAAAAAACAAEAACIAAAAA=</HashCode>
       <FileName>Window.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PartOfGamePlay" Collapsed="true">
-    <Position X="10.5" Y="1.5" Width="1.5" />
+    <Position X="12.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAEAAgAAAAAwAAAAQAAACAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAQAEAAgAAAAAwAAAAQAAACAAAEAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>PartOfGamePlay.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GamePlayCaller" Collapsed="true">
-    <Position X="30.25" Y="0.5" Width="1.5" />
+    <Position X="28.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAiAAAAAAAAAAAAA=</HashCode>
       <FileName>GamePlayCaller.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GamePlayManager" Collapsed="true">
-    <Position X="32" Y="0.5" Width="1.5" />
+    <Position X="30" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAAIAAAAAABAAAAAAAAAAAAAIAgAAAgACAAA=</HashCode>
+      <HashCode>AAAAQAAAAAIAAAAAABAAAAAAAAAQAAAIAgAAAgACAAA=</HashCode>
       <FileName>GameplayManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Mesh" Collapsed="true">
-    <Position X="5.25" Y="2.75" Width="1.5" />
+    <Position X="23" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAAAQAAAAAAgAA=</HashCode>
+      <HashCode>AAAAAIAAAAEAAgAAAAAAAAAAAAAAAAAAAQAAAAAAgAA=</HashCode>
       <FileName>Mesh.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ObjLoader" Collapsed="true">
-    <Position X="30.25" Y="2.5" Width="1.5" />
+    <Position X="26.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>wAAAgAAgAoAAgBAIAQIAoAAAACFAAAAAAAAAACAAAAA=</HashCode>
       <FileName>ObjLoader.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Face" Collapsed="true">
-    <Position X="3.5" Y="14.5" Width="1.5" />
+    <Position X="0.5" Y="15.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAJAAAAAAAAAABAAAAAAEAAAA=</HashCode>
       <FileName>ModelHelpers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MaterialFace" Collapsed="true">
-    <Position X="3.5" Y="15.75" Width="1.5" />
+    <Position X="0.5" Y="16.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgABAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
       <FileName>ModelHelpers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TexCoord" Collapsed="true">
-    <Position X="30.25" Y="3.5" Width="1.5" />
+    <Position X="24.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAASAAA=</HashCode>
       <FileName>ModelHelpers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DepugManager" Collapsed="true">
-    <Position X="26.75" Y="0.5" Width="1.5" />
+    <Position X="24.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>DebugManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeometryList" Collapsed="true">
-    <Position X="11.25" Y="5.75" Width="1.5" />
+    <Position X="3.25" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAIAAgoAAAAAAAAQBAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAIAAAAAAIAAgoAAAAAAABQBAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GeometryList.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeometryIVBO" Collapsed="true">
-    <Position X="13.5" Y="5.75" Width="1.5" />
+    <Position X="5.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAgAQAAIAAgsAQIAAAAAQAAAAAAQACABAAAAAgAAQ=</HashCode>
+      <HashCode>AAQAgAQAAIAAgsAQIAAAAAQAAAAAAQAiABAAAAAgAAQ=</HashCode>
       <FileName>GeometryIVBO.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RenderManager" Collapsed="true">
-    <Position X="32" Y="2.5" Width="1.5" />
+    <Position X="28.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAEAACAgEABgAAAAgCIAAAAAIAEAAAAAAABBAAAAA=</HashCode>
+      <HashCode>AAACAgCCAgEABgAAAAgCIAAgAAIAEAAAAACABBAAAAA=</HashCode>
       <FileName>RenderManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Shape" Collapsed="true">
-    <Position X="14.5" Y="4.5" Width="1.5" />
+    <Position X="6.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAoAgAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ImmedientShapes.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VShape" Collapsed="true">
-    <Position X="18" Y="5.75" Width="1.5" />
+    <Position X="10" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAAAIAAAAABAAQAAAAQAAEAAAAAAAAAAAA=</HashCode>
       <FileName>ImmedientShapes.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Line" Collapsed="true">
-    <Position X="20.25" Y="7.25" Width="1.5" />
+    <Position X="12.25" Y="10.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <HashCode>AIAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>ImmedientShapes.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Triangle" Collapsed="true">
-    <Position X="15.75" Y="7.25" Width="1.5" />
+    <Position X="7.75" Y="10.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAAAAAAgABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ImmedientShapes.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeometryIMT" Collapsed="true">
-    <Position X="9" Y="5.75" Width="1.5" />
+    <Position X="1" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAABAACAAAoADAAAQAAQAAAAAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>ImmedientShapes.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Quad" Collapsed="true">
-    <Position X="18" Y="7.25" Width="1.5" />
+    <Position X="10" Y="10.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAAAAAAAQAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAQAAAAABAAAAAAAAAEAAAA=</HashCode>
       <FileName>ImmedientShapes.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IVertex" Collapsed="true">
-    <Position X="3" Y="4.5" Width="1.5" />
+    <Position X="3" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAAAAigAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Vertex.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Vertex" Collapsed="true">
-    <Position X="3" Y="5.75" Width="1.5" />
+    <Position X="3" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAABAAiAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAEAABAAiAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Vertex.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VertexNormal" Collapsed="true">
-    <Position X="0.75" Y="7.25" Width="1.5" />
+    <Position X="0.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAAAiIAAAAAAAAACAIAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAEAAAAAiIAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Vertex.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VertexColor" Collapsed="true">
-    <Position X="3" Y="7.25" Width="1.5" />
+    <Position X="3" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAgQEAAAAAiAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAgAEAAAAAiAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Vertex.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VertexTexture" Collapsed="true">
-    <Position X="5.25" Y="7.25" Width="1.5" />
+    <Position X="5.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAAAiAAAIAAAAAAAAgACAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAEAAAAAiAAAIAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
       <FileName>Vertex.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VertexColorNormal" Collapsed="true">
-    <Position X="3" Y="8.75" Width="1.5" />
+    <Position X="3" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAAAiAAAAAAAAAAAAIAAAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AAAAAAAAEAAAAAiAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Vertex.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="VertexTextureNormal" Collapsed="true">
-    <Position X="5.25" Y="8.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AgAAAAAAEAAAAEiAAAIAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Vertex.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Material" Collapsed="true">
-    <Position X="7.5" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AEAAAEgAAACEAIAEAAAAgAAAEAIEAAgAgAAQAAAAAAA=</HashCode>
-      <FileName>Material.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Resource" Collapsed="true">
-    <Position X="4" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Resource.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ResourceManager" Collapsed="true">
-    <Position X="25" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAABAAAAAAAAAAAEBAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ResourceManager.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Shader" Collapsed="true">
-    <Position X="0.75" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>QAAAAAAAgAAAAACAAAAAAAAAAAgAAAIgBAAAAAAACAA=</HashCode>
-      <FileName>Shader.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Texture" Collapsed="true">
-    <Position X="3" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAEAAAAAAAAgAAAAAAAgAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
-      <FileName>Texture.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="IShader" Collapsed="true">
-    <Position X="0.5" Y="14.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAABAEAAACAAAAAAAAAEA=</HashCode>
-      <FileName>IShader.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TransformationShader" Collapsed="true">
-    <Position X="0.5" Y="15.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAACCAABAAAAAAAEAAAAAAAEA=</HashCode>
-      <FileName>TransformationShader.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="KeyboardInput">
-    <Position X="8.5" Y="13.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAMAAAAAACAAAAAAAAAAAAgAAAACAAEAAAAAAAAA=</HashCode>
-      <FileName>KeyboardInput.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="InputDevice" Collapsed="true">
-    <Position X="9.75" Y="12.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAABAABA=</HashCode>
-      <FileName>InputDevice.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="InputExecution" Collapsed="true">
-    <Position X="26.75" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>InputDeviceManager.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="InputDeviceManager" Collapsed="true">
-    <Position X="25" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAACAAAAEAAAAAAAAAAAAAgAAAAAAAAAEEAAAAA=</HashCode>
-      <FileName>InputDeviceManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Scene" Collapsed="true">
-    <Position X="0.75" Y="13.25" Width="1.5" />
+    <Position X="13.25" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Scene.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SceneGraph" Collapsed="true">
-    <Position X="26.75" Y="3.5" Width="1.5" />
+    <Position X="31.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SceneGraph.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="SceneManager" Collapsed="true">
+    <Position X="23" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAggAAEAgAAAAAIAAAAAAAAAAABCAAAAAEAQ=</HashCode>
+      <FileName>SceneManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Material" Collapsed="true">
+    <Position X="5.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAEgAAACEAIAEAAAAgAAAEAIEAAgAgAAQAAAAAAA=</HashCode>
+      <FileName>Material.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Resource" Collapsed="true">
+    <Position X="5.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Resource.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResourceManager" Collapsed="true">
+    <Position X="30" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAABAAAAAAAAAAAEBAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ResourceManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shader" Collapsed="true">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgAAAAAAgAAAAACAAAAAAAAAAAgAAAIgBAAAAAAACgA=</HashCode>
+      <FileName>Shader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Texture" Collapsed="true">
+    <Position X="26.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAgAAAAAAAgAAAAAAEAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Texture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KeyboardInput" Collapsed="true">
+    <Position X="13.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAMAAAAAACAAAAAAAAAAAAgAAAACAAEAAAAAAAAA=</HashCode>
+      <FileName>KeyboardInput.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputDevice" Collapsed="true">
+    <Position X="13.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAABAABA=</HashCode>
+      <FileName>InputDevice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputExecution" Collapsed="true">
+    <Position X="23" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InputDeviceManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputDeviceManager" Collapsed="true">
+    <Position X="31.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAEAAAAAAAAAAAAAgAAAAAAAAAEEAAAAA=</HashCode>
+      <FileName>InputDeviceManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Camera" Collapsed="true">
-    <Position X="3" Y="13.25" Width="1.5" />
+    <Position X="8.75" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAgAAAAAAAAAAACAAAAEAAAoAAAAIAAAAAAAAAA=</HashCode>
       <FileName>Camera.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameComponent" Collapsed="true">
-    <Position X="4" Y="11.75" Width="1.5" />
+    <Position X="9.75" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameComponent.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Light" Collapsed="true">
-    <Position X="5.25" Y="13.25" Width="1.5" />
+    <Position X="11" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAQAIAAAAAAAAgCAAQgAAgIAAAAAAAAAAABAAABAAAA=</HashCode>
       <FileName>Light.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IGameModule">
-    <Position X="3" Y="10.5" Width="1.5" />
+  <Class Name="IGameModule" Collapsed="true">
+    <Position X="11" Y="11.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAACAAAIBAAABAIAkAAAAEgAAACEAAAAQAAAA=</HashCode>
       <FileName>IGameModule.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MColor" Collapsed="true">
-    <Position X="30.25" Y="1.5" Width="1.5" />
+    <Position X="26.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAGAABAAAAAAgAAAAAAAAAABAAAAAAAAAACKDEAAQA=</HashCode>
       <FileName>MColor.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DrawBehavior">
-    <Position X="9.75" Y="9.75" Width="1.5" />
+  <Class Name="DrawBehavior" Collapsed="true">
+    <Position X="1.75" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DrawBehavior.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IBehavior" Collapsed="true">
-    <Position X="11" Y="8.5" Width="1.5" />
+    <Position X="3" Y="11.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAABAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IBehavior.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IVBODrawBehavior" Collapsed="true">
-    <Position X="11" Y="11.25" Width="1.5" />
+    <Position X="0.75" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAQAAgAAAAgAAAAAAAAAAAAAADAAAAAAAAAAAAAA=</HashCode>
       <FileName>IVBODrawBehavior.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UpdateBehavior" Collapsed="true">
-    <Position X="13.25" Y="9.75" Width="1.5" />
+    <Position X="5.25" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>UpdateBehavior.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Button" Collapsed="true">
-    <Position X="25" Y="0.5" Width="1.5" />
+    <Position X="23" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAEAAAACAAAAgQAQAAAIAAAAAAAAAAAABAAAAEAAAA=</HashCode>
       <FileName>Button.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Menu" Collapsed="true">
-    <Position X="26.75" Y="2.5" Width="1.5" />
+    <Position X="31.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAABAAAQAYAAAAAAAAAAMBAAAAAAAAACAAAA=</HashCode>
       <FileName>Menu.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Mouse" Collapsed="true">
-    <Position X="28.5" Y="2.5" Width="1.5" />
+    <Position X="24.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAABAAAAAAAAAAAAAIAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>Mouse.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UIManager" Collapsed="true">
-    <Position X="32" Y="3.5" Width="1.5" />
+    <Position X="28.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAABAAAEQABAAAAAAAAAEAAIAAAAAAAAAAAA=</HashCode>
       <FileName>UIManager.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="BasicShader" Collapsed="true">
+    <Position X="8.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAIAAAAAAAAAAAACAAAAEAAAAQAABAAAAEA=</HashCode>
+      <FileName>BasicShader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IShader" Collapsed="true">
+    <Position X="9.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAACAAAAAAAAAAAAAAAAAABAAEAACAAAAAAAAAAA=</HashCode>
+      <FileName>IShader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransformationShader" Collapsed="true">
+    <Position X="10.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAACCAABAAAAAAAEAAAAAAAEA=</HashCode>
+      <FileName>TransformationShader.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="DrawTry" Collapsed="true">
-    <Position X="8.75" Y="11.25" Width="1.5" />
+    <Position X="3" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
       <FileName>TryDrawBEhavior.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="_Game1" Collapsed="true">
-    <Position X="10.5" Y="2.75" Width="1.5" />
+    <Position X="12.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAgABAAAAAkwAAAIQAAAAIAAIBEAAAAAAJAEAEAAA=</HashCode>
+      <HashCode>AAQAggAAAAAAAwAAAIQAAAAIAAEBEAAAgAAJAEAkAAA=</HashCode>
       <FileName>_Game1.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Struct Name="BaseLight" Collapsed="true">
-    <Position X="25" Y="5.75" Width="1.5" />
+  <Class Name="VertexTextureNormal" Collapsed="true">
+    <Position X="5.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAAAAAA=</HashCode>
-      <FileName>ShaderStructsHelper.h</FileName>
+      <HashCode>AAAAAAAAEAAAAEiAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vertex.h</FileName>
     </TypeIdentifier>
-  </Struct>
-  <Struct Name="DirectionalLight" Collapsed="true">
-    <Position X="26.75" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AABAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ShaderStructsHelper.h</FileName>
-    </TypeIdentifier>
-  </Struct>
-  <Struct Name="__unnamed_struct_0129_1" Collapsed="true">
-    <Position X="22.5" Y="2.5" Width="1.5" />
+  </Class>
+  <Struct Name="__unnamed_struct_0047_1" Collapsed="true">
+    <Position X="20.5" Y="21.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAEAAAEAAAYAgAAgAAAAAAAhAAAAABACA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="__unnamed_struct_0129_3" Collapsed="true">
-    <Position X="21.5" Y="20.5" Width="1.5" />
+  <Struct Name="__unnamed_struct_0047_3" Collapsed="true">
+    <Position X="16.5" Y="21.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAIIAAAAAAIAAACCAAAAAAAEAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="__unnamed_struct_0129_4" Collapsed="true">
-    <Position X="21.5" Y="15.5" Width="1.5" />
+  <Struct Name="__unnamed_struct_0047_4" Collapsed="true">
+    <Position X="20.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAABAAAIAAEDEAgIAAABAAAgAAABAoAAAAAgAgA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="__unnamed_struct_0129_6" Collapsed="true">
-    <Position X="21.5" Y="10.5" Width="1.5" />
+  <Struct Name="__unnamed_struct_0047_6" Collapsed="true">
+    <Position X="20.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEEAAAAAAAAAAQAAAAAAAACAIABAIAAAgAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="__unnamed_struct_0129_7" Collapsed="true">
-    <Position X="17.5" Y="20.5" Width="1.5" />
+  <Struct Name="__unnamed_struct_0047_7" Collapsed="true">
+    <Position X="19.5" Y="16.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAIIAAAAgIAAAACCAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="__unnamed_struct_0129_8" Collapsed="true">
-    <Position X="18.5" Y="2.5" Width="1.5" />
+  <Struct Name="__unnamed_struct_0047_8" Collapsed="true">
+    <Position X="12.5" Y="20.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAEAQAAAIEAJAAgAgAAAgAAAAAAIAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="__unnamed_struct_0129_9" Collapsed="true">
-    <Position X="17.5" Y="15.5" Width="1.5" />
+  <Struct Name="__unnamed_struct_0047_9" Collapsed="true">
+    <Position X="19.5" Y="13.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="__unnamed_struct_0129_10" Collapsed="true">
-    <Position X="13.5" Y="18.5" Width="1.5" />
+  <Struct Name="__unnamed_struct_0047_10" Collapsed="true">
+    <Position X="8.5" Y="19.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAQAAAAAAAAAAAAAAAIAAAIAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="__unnamed_struct_0129_12" Collapsed="true">
-    <Position X="9.5" Y="18.5" Width="1.5" />
+  <Struct Name="__unnamed_struct_0047_12" Collapsed="true">
+    <Position X="4.5" Y="18.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAIAAAAIAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Struct>
   <Struct Name="stbi_gif_lzw_struct" Collapsed="true">
-    <Position X="17.5" Y="10.5" Width="1.5" />
+    <Position X="15.5" Y="17.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAgAAAAAAAAAgAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Struct>
   <Struct Name="stbi_gif_struct" Collapsed="true">
-    <Position X="5.5" Y="18.5" Width="1.5" />
+    <Position X="16.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAEICAgAIAAARAQAgAEBAYAAgAAAAQAggAAAAJAQ=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="__unnamed_struct_012b_2" Collapsed="true">
-    <Position X="1.5" Y="18.5" Width="1.5" />
+  <Struct Name="__unnamed_struct_0048_2" Collapsed="true">
+    <Position X="16.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAACAEAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>stb_image.h</FileName>
     </TypeIdentifier>
   </Struct>
+  <Struct Name="BaseLight" Collapsed="true">
+    <Position X="23" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAAAAAA=</HashCode>
+      <FileName>ShaderStructsHelper.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="DirectionalLight" Collapsed="true">
+    <Position X="24.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShaderStructsHelper.h</FileName>
+    </TypeIdentifier>
+  </Struct>
   <Typedef Name="byte" Collapsed="true">
-    <Position X="25" Y="8.75" Width="1.5" />
+    <Position X="23" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MemoryManager.h</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="uint8" Collapsed="true">
-    <Position X="26.75" Y="10.25" Width="1.5" />
+    <Position X="31.75" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="uint16" Collapsed="true">
-    <Position X="32" Y="9.5" Width="1.5" />
+    <Position X="28.25" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="int16" Collapsed="true">
-    <Position X="26.75" Y="8.75" Width="1.5" />
+    <Position X="24.75" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="uint32" Collapsed="true">
-    <Position X="25" Y="10.25" Width="1.5" />
+    <Position X="30" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="int32" Collapsed="true">
-    <Position X="28.5" Y="8.75" Width="1.5" />
+    <Position X="26.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="uint" Collapsed="true">
-    <Position X="30.25" Y="9.5" Width="1.5" />
+    <Position X="26.5" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="validate_uint32" Collapsed="true">
-    <Position X="28.5" Y="10.25" Width="1.5" />
+    <Position X="23" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="stbi" Collapsed="true">
-    <Position X="22.5" Y="0.5" Width="1.5" />
+    <Position X="20.5" Y="23.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="huffman" Collapsed="true">
-    <Position X="21.5" Y="22.5" Width="1.5" />
+    <Position X="16.5" Y="19.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="jpeg" Collapsed="true">
-    <Position X="21.5" Y="17.5" Width="1.5" />
+    <Position X="20.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="stbi_dequantize_t" Collapsed="true">
-    <Position X="32" Y="8.75" Width="1.5" />
+    <Position X="30" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="resample_row_func" Collapsed="true">
-    <Position X="30.25" Y="8.75" Width="1.5" />
+    <Position X="28.25" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="stbi_resample" Collapsed="true">
-    <Position X="21.5" Y="12.5" Width="1.5" />
+    <Position X="20.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="zhuffman" Collapsed="true">
-    <Position X="17.5" Y="22.5" Width="1.5" />
+    <Position X="19.5" Y="18.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="zbuf" Collapsed="true">
-    <Position X="18.5" Y="0.5" Width="1.5" />
+    <Position X="12.5" Y="18.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="chunk" Collapsed="true">
-    <Position X="17.5" Y="17.5" Width="1.5" />
+    <Position X="19.5" Y="11.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="png" Collapsed="true">
-    <Position X="13.5" Y="20.5" Width="1.5" />
+    <Position X="8.5" Y="21.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="pic_packet_t" Collapsed="true">
-    <Position X="9.5" Y="20.5" Width="1.5" />
+    <Position X="4.5" Y="20.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="stbi_gif_lzw" Collapsed="true">
-    <Position X="17.5" Y="12.5" Width="1.5" />
+    <Position X="15.5" Y="15.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="stbi_gif" Collapsed="true">
-    <Position X="5.5" Y="20.5" Width="1.5" />
+    <Position X="16.5" Y="10.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="stbi_uc" Collapsed="true">
-    <Position X="26.75" Y="9.5" Width="1.5" />
+    <Position X="23" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.h</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="stbi_io_callbacks" Collapsed="true">
-    <Position X="1.5" Y="20.5" Width="1.5" />
+    <Position X="16.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.h</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="stbi_idct_8x8" Collapsed="true">
-    <Position X="25" Y="9.5" Width="1.5" />
+    <Position X="31.75" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.h</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="stbi_YCbCr_to_RGB_run" Collapsed="true">
-    <Position X="28.5" Y="9.5" Width="1.5" />
+    <Position X="24.75" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>stb_image.h</FileName>
     </TypeIdentifier>
   </Typedef>
   <Enum Name="GPUDrawMode" Collapsed="true">
-    <Position X="32" Y="7" Width="1.5" />
+    <Position X="31.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAQAAAIAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
       <FileName>GraphicsHelpers.h</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="Shapes" Collapsed="true">
-    <Position X="26.75" Y="7.75" Width="1.5" />
+    <Position X="24.75" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>GraphicsHelpers.h</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="BufferType" Collapsed="true">
-    <Position X="30.25" Y="7" Width="1.5" />
+    <Position X="30" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GraphicsHelpers.h</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="MoveList" Collapsed="true">
-    <Position X="25" Y="7.75" Width="1.5" />
+    <Position X="23" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABAAAAAAAAgAAAAAAAAAAAAICAAAgIABAAqwjEQA=</HashCode>
       <FileName>InputDeviceManager.h</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="__unnamed_enum_0129_2" Collapsed="true">
-    <Position X="26.75" Y="7" Width="1.5" />
+  <Enum Name="__unnamed_enum_0047_2" Collapsed="true">
+    <Position X="24.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="__unnamed_enum_0129_11" Collapsed="true">
-    <Position X="25" Y="7" Width="1.5" />
+  <Enum Name="__unnamed_enum_0047_11" Collapsed="true">
+    <Position X="23" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACBAAIAAABAAAAAAAACAAAAAAAAAEAAAAAAABAAAA=</HashCode>
       <FileName>stb_image.c</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="__unnamed_enum_012b_1" Collapsed="true">
-    <Position X="28.5" Y="7" Width="1.5" />
+  <Enum Name="__unnamed_enum_0048_1" Collapsed="true">
+    <Position X="26.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAAABAAAAAAAAAAEAAABAAAAAAAIAAAAAA=</HashCode>
       <FileName>stb_image.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BasicShaderUniforms" Collapsed="true">
+    <Position X="28.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAQAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>BasicShader.h</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />
