@@ -7,3 +7,4 @@
 #define PI 3.1415926536f
 #define ToRad(x) (float)(((x) * PI/ 180.0f))
 #define ToDeg(x) (float)(((x) * 180.0f/ PI))
+#define cot(x) (float)(1/tan(x))

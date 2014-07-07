@@ -469,17 +469,10 @@
       <FileName>TryDrawBEhavior.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="_Game1" Collapsed="true">
-    <Position X="12.5" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAggAAAAAAAwAAAIQAAAAIAAEBEAAAgAAJAEAkAAA=</HashCode>
-      <FileName>_Game1.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="VertexTextureNormal" Collapsed="true">
     <Position X="5.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAAEiAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAEAAAAEiAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Vertex.h</FileName>
     </TypeIdentifier>
   </Class>

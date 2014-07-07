@@ -17,9 +17,9 @@ public:
 	MColor(float R, float G, float B, float A)
 	{
 		if(!(R > 1 || G > 1 || B > 1 || A > 1))// float
-		{this->R = R; this->G = G; this->B = B;this->A =1;}
+		{this->R = R; this->G = G; this->B = B;this->A =A;}
 		else
-		{this->R = (float)R/255; this->G = (float)G/255; this->B = (float)B/255; this->A =1;}
+		{this->R = (float)R/255; this->G = (float)G/255; this->B = (float)B/255; this->A =A;}
 	}
 
 	static MColor Black;

@@ -6,7 +6,7 @@
 using namespace std;
 
 
-void KeyboardInput::GetStates()
+void KeyboardInput::GetStates() // make it in openGL header and call it frm here
 {
 	glutKeyboardFunc(keyPressed);
 	glutKeyboardUpFunc(keyUp);

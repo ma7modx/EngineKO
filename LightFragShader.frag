@@ -1,18 +1,19 @@
 #version 400 
 
+uniform sampler2D tex ;
 varying vec3 outColor; 
 varying vec2 outTexCoord;
 varying vec3 outLightSource ;
 varying vec3 outNormal ;
-
-uniform sampler2D tex ;
+varying float outIsTexture;
 
 void main(){
-	vec3 LightVector = normalize (outLightSource);
-	vec3 ObjNormal = normalize (vec3(10,1,3));
-	float LightForce = max(0 ,dot(LightVector , ObjNormal) );
-	//if(LightForce > 90)
+	//vec3 LightVector = normalize (outLightSource);
+	//vec3 ObjNormal = normalize (outNormal);
+	//float LightForce = max(0 ,dot(LightVector , ObjNormal) );
 	
-    //gl_FragColor = vec4(1,0,1,1);
-	gl_FragColor = texture2D(tex , outTexCoord) * LightForce;
+	vec4 Lcolor = texture2D(tex , outTexCoord) * outIsTexture ;
+	vec4 Ltex = vec4(outColor,1) * (1.0 - outIsTexture);
+	vec4 color = Lcolor + Ltex ;
+	 gl_FragColor = color ;
 }

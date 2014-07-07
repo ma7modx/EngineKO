@@ -22,6 +22,7 @@ public :
 		//Delete();
 		delete attributes ;
 	}
-protected:
+
+//protected:
 	VertexAttributes* attributes ;
 };

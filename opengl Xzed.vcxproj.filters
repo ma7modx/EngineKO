@@ -14,9 +14,6 @@
     <Filter Include="Header Files\GamePlay Management">
       <UniqueIdentifier>{ba663a44-dc4a-4d93-98e4-aa2df33333a4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Model Management">
-      <UniqueIdentifier>{604e2c25-45e3-41be-b837-7288ef1b82de}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Rendering Management">
       <UniqueIdentifier>{562a4e0f-e8ee-49ff-b902-4c119464a768}</UniqueIdentifier>
     </Filter>
@@ -57,6 +54,9 @@
     </Filter>
     <Filter Include="Header Files\Shader Resources\ShaderClasses">
       <UniqueIdentifier>{aa366496-d45f-4b1f-8820-119c9906837c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Resource Management\Model Management">
+      <UniqueIdentifier>{604e2c25-45e3-41be-b837-7288ef1b82de}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -112,7 +112,7 @@
       <Filter>Header Files\Rendering Management</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.cpp">
-      <Filter>Header Files\Model Management</Filter>
+      <Filter>Header Files\Resource Management\Model Management</Filter>
     </ClCompile>
     <ClCompile Include="KeyboardInput.cpp">
       <Filter>Header Files\InputDevice Management</Filter>
@@ -140,6 +140,9 @@
     </ClCompile>
     <ClCompile Include="BasicShader.cpp">
       <Filter>Header Files\Shader Resources\ShaderClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector4.cpp">
+      <Filter>Header Files\Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -213,13 +216,13 @@
       <Filter>Header Files\Helpers</Filter>
     </ClInclude>
     <ClInclude Include="AnimationManager.h">
-      <Filter>Header Files\Model Management</Filter>
+      <Filter>Header Files\Resource Management\Model Management</Filter>
     </ClInclude>
     <ClInclude Include="GraphicsHelpers.h">
       <Filter>Header Files\Framework Management</Filter>
     </ClInclude>
     <ClInclude Include="ModelHelpers.h">
-      <Filter>Header Files\Model Management</Filter>
+      <Filter>Header Files\Resource Management\Model Management</Filter>
     </ClInclude>
     <ClInclude Include="MemoryManager.h">
       <Filter>Header Files</Filter>
@@ -246,10 +249,10 @@
       <Filter>Header Files\Rendering Management</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
-      <Filter>Header Files\Model Management</Filter>
+      <Filter>Header Files\Resource Management\Model Management</Filter>
     </ClInclude>
     <ClInclude Include="ObjLoader.h">
-      <Filter>Header Files\Model Management</Filter>
+      <Filter>Header Files\Resource Management\Model Management</Filter>
     </ClInclude>
     <ClInclude Include="Quaternion.h">
       <Filter>Header Files\Math</Filter>
@@ -318,10 +321,10 @@
       <Filter>Header Files\UI Management</Filter>
     </ClInclude>
     <ClInclude Include="Model.cpp">
-      <Filter>Header Files\Model Management</Filter>
+      <Filter>Header Files\Resource Management\Model Management</Filter>
     </ClInclude>
     <ClInclude Include="Model.h">
-      <Filter>Header Files\Model Management</Filter>
+      <Filter>Header Files\Resource Management\Model Management</Filter>
     </ClInclude>
     <ClInclude Include="RenderManager.h">
       <Filter>Header Files\Rendering Management</Filter>
@@ -356,6 +359,9 @@
       <Filter>Header Files\Shader Resources</Filter>
     </None>
     <None Include="ClassDiagram.cd" />
+    <None Include="LightFragShader22.frag">
+      <Filter>Header Files\Shader Resources</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Object Include="meshmesh.obj">

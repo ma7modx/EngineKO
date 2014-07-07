@@ -67,6 +67,17 @@ VertexData VertexTexture::GetData()
 	{return VertexData::VERTEX | VertexData::TEXTURE ;}
 	
 ///
+	void VertexColorNormal::SetVertex()
+	{
+		SetVertex(Position , color , Normal);
+	}
+	void VertexColorNormal::SetVertex(Vector3 Position, MColor color, Vector3 Normal)
+	{
+		this->Normal = Normal ;
+		GameController::GetGameController()->Graphicsmanager->SetVertexNormal(Normal);
+		VertexColor::SetVertex(Position , color);
+	}
+	
 VertexData VertexColorNormal::GetData() 
 	{return VertexData::VERTEX | VertexData::COLOR | VertexData::NORMAL ;}
 ///

@@ -17,6 +17,6 @@ public:
 	~Light();
 
 private:
-	GameObject* lightSource;
+	GameObject* lightSource; // tis already exist in childs
 	Shader* lightShader;
 };

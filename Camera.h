@@ -5,27 +5,31 @@
 class Camera : public GameComponent
 {
 public :
-	Camera(Vector3 position , Vector3 eyeDirection) : GameComponent(NULL , position)
+	Camera(Vector3 position , Vector3 eyeDirection_Angle_Deg) : GameComponent(NULL , position)
 	{
-		 this->eyeDirection = eyeDirection ; rotation = Vector2(0,0) ;
+		 this->eyeDirection = eyeDirection_Angle_Deg ; rotation = Vector2(0,0) ;
 	}
 	Matrix GetCameraMatrixLookAt()
 	{
 		return Matrix::LookAtDirection (position , eyeDirection) ;
 	}
 	
-	void MoveCameraDirection(Vector3 Direction)
+	void MoveCameraDirection(Vector3 eyeDirection_Angle_Deg)
 	{
-		this->eyeDirection = Direction ;
+		this->eyeDirection = eyeDirection_Angle_Deg ;
 	}
 	
+	void MoveCameraPosition(Vector3 pos)
+	{
+		this->position = pos ;
+	}
 	int excuteCameraCommand() 
 	{
 		
 	}
 
 
-protected :
+//protected :
 Vector3 eyeDirection ;
 Vector2 rotation ; //pitch arround the x  (up or down), yaw arround the y
 virtual void LockCamera()

@@ -16,7 +16,7 @@ public:
 		parent = NULL ;
 		behaviors.resize(2);
 	}
-	IGameModule(GameObject* parent , Vector3 pos )
+	IGameModule(GameObject* parent , Vector3 pos ) // in 7-6-2014 after 5 months of writing this code i think parent should be IGameModule
 	{
 		position = pos ;
 		this->parent = parent ;
@@ -71,5 +71,5 @@ protected:
 	Matrix transform ;
  	vector<IBehavior*> behaviors ;
 private:
-	GameObject* parent ;
+	GameObject* parent ;// in 7-6-2014 after 5 months of writing this code i think parent should be IGameModule
 };

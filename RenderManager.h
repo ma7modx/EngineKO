@@ -44,19 +44,19 @@ public:
 	{
 		shadersMap[s] = v;
 	}
-	void SetWorldViewMatrix(Matrix m)
+	void SetViewProjectionMatrix(Matrix m)
 	{
-		worldViewMatrix = m;
+		ViewProjectionMatrix = m;
 	}
-	Matrix GetWorldViewMatrix()
+	Matrix GetViewProjectionMatrix()
 	{
-		return worldViewMatrix;
+		return ViewProjectionMatrix;
 	}
 	void Draw();
 private:
-	Matrix worldViewMatrix;
+	Matrix ViewProjectionMatrix;
 	SceneManager* sceneManager;
 	Camera* camera;
 	vector<Light*> lights;
-	map<string , vector<Shader*> > shadersMap;
+	map<string , vector<Shader*> > shadersMap; // make it <string , shader> 
 };

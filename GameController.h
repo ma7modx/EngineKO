@@ -29,7 +29,7 @@ public :
 	// deletes GamePlayManager , ResourceManager , MemoryManager
 	~GameController();
 private :
-	KeyboardInput* keyboard ;
+	KeyboardInput* keyboard ; // not used and shouldnt be here .. inputdevicemanager
 	static GameController* Controller ;
 
 };

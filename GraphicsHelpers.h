@@ -28,6 +28,10 @@ public :
 		else if(Data.Mode == VertexData::TEXTURE)
 			arr[3] = value ;
 	}
+	int GetAttributeAt(int indx)
+	{
+		return arr[indx];
+	}
 	int *GetAttributes()
 	{
 		return arr ;

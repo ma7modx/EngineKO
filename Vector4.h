@@ -1,11 +1,12 @@
 #pragma once
 #include "Vector3.h"
+class Matrix ;
 class Vector4 
 {
 public:
 	float X,Y,Z,W ; // W = 0 || 1
 public:
-	Vector4(){W = 1;}
+	Vector4(){X = Y = Z = 0 ;W = 1;}
 	Vector4(float X, float Y, float Z, float W) 
 	{
 		this->X = X ;
@@ -29,6 +30,7 @@ public:
 		if (i == 2) return Z;
 		if (i == 3) return W;
 	}
+	Vector4 operator* (Matrix) ;
 	~Vector4(){};
 };
 

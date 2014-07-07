@@ -103,6 +103,7 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="ImmedientShapes.cpp" />
     <ClCompile Include="Vector3.cpp" />
+    <ClCompile Include="Vector4.cpp" />
     <ClCompile Include="Vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +185,7 @@
     <None Include="ClassDiagram.cd" />
     <None Include="fragment.frag" />
     <None Include="LightFragShader.frag" />
+    <None Include="LightFragShader22.frag" />
     <None Include="meshmeshMaterial.mtl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>

@@ -34,7 +34,7 @@ class OpenGL :public GraphicsManager
 {
 public:
 	static bool ClosePrograme , updateFinished , drawFinished;
-	const static int orthoValues = 5 ;
+	const static int orthoValues = 10 ;
 	static float angle ;
 
 	OpenGL(int iArgc, char** cppArgv, Window window) :GraphicsManager(window)
@@ -56,40 +56,47 @@ public:
 		glutInitContextVersion(4, 1);
 		glutInitContextProfile(GLUT_CORE_PROFILE);
 
-
-		//	SDL_Window* window = SDL_CreateWindow("SDL window" , this->widnow.Windowposition.X, this->widnow.Windowposition.Y 
-		//	,this->widnow.WindoWidth, this->widnow.Windowheight , SDL_WINDOW_OPENGL|SDL_WINDOW_RESIZABLE ) ;
-
-
 		if (glewInit()) {
-			cerr << "Unable to initialize GLEW ... exiting" << endl;
+			cout << "Unable to initialize GLEW ... exiting" << endl;
 			exit(EXIT_FAILURE);
 		}
 
 		cout << glGetString(GL_VERSION) <<endl;
 		cout << glGetString(GL_SHADING_LANGUAGE_VERSION) << endl ;
 
-		//glewExperimental = GL_TRUE;
 
 		glFlush();
 		glClearColor(this->widnow.color.R, this->widnow.color.G, this->widnow.color.B, 1);
 
-		//glEnable(GL_BLEND);
-
+	
 		glEnable(GL_DEPTH_TEST);
 
 		glEnable(GL_TEXTURE_2D);
 		glActiveTexture(GL_TEXTURE0);
 
-		/*
+	
+		
+		// anti aliasing
+		glEnable (GL_POINT_SMOOTH);
+		glEnable (GL_LINE_SMOOTH);
+		glEnable (GL_POLYGON_SMOOTH);
+		glEnable(GL_MULTISAMPLE);
+		glEnable(GL_BLEND);
+		glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		//glBlendFunc (GL_SRC_ALPHA_SATURATE, GL_ONE_MINUS_SRC_ALPHA);
+		glLineWidth (2);
+  
+   
+
+		
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		gluPerspective(this->widnow.Angle, this->widnow.WindoWidth / this->widnow.Windowheight, this->widnow.Near, this->widnow.Far);
 		glMatrixMode(GL_MODELVIEW);
-		*/
-
-		// /*
-		//glViewport(0, 0, this->widnow.WindoWidth, this->widnow.Windowheight);
+		
+		glViewport(0, 0, this->widnow.WindoWidth, this->widnow.Windowheight);
+		 /*
+		glViewport(0, 0, this->widnow.WindoWidth, this->widnow.Windowheight);
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		glOrtho(-orthoValues, orthoValues,
@@ -97,14 +104,14 @@ public:
 			-orthoValues, orthoValues);
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
-		// */
+		 */
+
 
 		GLfloat light_ambient[] = { 0.0, 0.0, 0.0, 1.0 };
 		GLfloat light_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
 		GLfloat light_specular[] = { 1.0,1.0, 1.0, 1.0 };
 		GLfloat light_position[] = { 0, 1.0, 1.0, 0.0 };
-		//glShadeModel(GL_SMOOTH);
-
+		
 		glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
 		glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
 		glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
@@ -454,13 +461,17 @@ private:
 	void GPUShaderModeActive(int numOfShaders, int Shadersindices[])
 	{
 		for (int i = 0; i < numOfShaders; ++i)
-			glEnableVertexAttribArray(Shadersindices[i]);
+			if(Shadersindices[i] != -1)
+				glEnableVertexAttribArray(Shadersindices[i]);
+			
 	}
 
 	void GPUShaderModeDeactive(int numOfShaderAttributes, int Shadersindices[])
 	{
 		for (int i = 0; i < numOfShaderAttributes; ++i)
-			glDisableVertexAttribArray(Shadersindices[i]);
+			if(Shadersindices[i] != -1)
+				glDisableVertexAttribArray(Shadersindices[i]);
+			
 	}
 	void ShaderAttributePointer(int ShaderAttributesindices[] , int strideBetweenVertices, void* pointerToTheBeginingOfData[] , VertexData mode) 
 	{

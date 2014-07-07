@@ -20,6 +20,6 @@ public :
 	//void Delete();
 	// does nothing but there's delete function
 	~Shader();
-private :
+protected :
 	unsigned int programID , VS , FS ;// vertex , fragment shaders
 };
